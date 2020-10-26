@@ -3,9 +3,13 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "formularioLinea4": {
+    "formularioBanco": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -13,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/formularioLinea4",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -24,7 +28,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -62,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "formularioLinea4:build"
+            "browserTarget": "formularioBanco:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "formularioLinea4:build:production"
+              "browserTarget": "formularioBanco:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "formularioLinea4:build"
+            "browserTarget": "formularioBanco:build"
           }
         },
         "test": {
@@ -88,7 +93,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "src/styles.scss"
             ],
             "scripts": []
           }
@@ -110,15 +116,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "formularioLinea4:serve"
+            "devServerTarget": "formularioBanco:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "formularioLinea4:serve:production"
+              "devServerTarget": "formularioBanco:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "formularioLinea4"
+    }
+  },
+  "defaultProject": "formularioBanco"
 }
