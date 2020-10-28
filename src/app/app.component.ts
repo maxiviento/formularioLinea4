@@ -1,10 +1,7 @@
 import { Component } from '@angular/core'
 import { FormGroup } from '@angular/forms'
-import { MAT_LABEL_GLOBAL_OPTIONS } from '@angular/material/core'
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core'
-import { truncate } from 'fs'
 import jsPDF from 'jspdf'
-import { toUnicode } from 'punycode'
 
 
 @Component({
@@ -790,7 +787,7 @@ export class AppComponent {
     key: 'Grupo Conviviente',
     type: 'repeat',
     templateOptions: {
-      addText: 'Ingresar persona del grupo conviviente',
+      addText: 'Ingresar persona del grupo familiar',
     },
     fieldArray: {
     fieldGroup: [
@@ -1164,7 +1161,7 @@ export class AppComponent {
     key: 'Grupo Conviviente',
     type: 'repeat',
     templateOptions: {
-      addText: 'Ingresar persona del grupo conviviente',
+      addText: 'Ingresar miembro de la organización',
     },
     fieldArray: {
       fieldGroup: [
