@@ -787,7 +787,7 @@ export class AppComponent {
     key: 'Grupo Conviviente',
     type: 'repeat',
     templateOptions: {
-      addText: 'Ingresar persona del grupo conviviente',
+      addText: 'Ingresar persona del grupo familiar',
     },
     fieldArray: {
     fieldGroup: [
