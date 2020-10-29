@@ -26,6 +26,7 @@ import { MatCardModule } from '@angular/material/card';
 
 import { RepeatTypeComponent } from './formly-types/repeat-type.formly.component'
 import { NoRepeatTypeComponent } from './formly-types/no-repeat-type.formly.component'
+import { FormlyFieldButton } from './formly-types//button-type.component'
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 export function validateRequired(err, field: FormlyFieldConfig) {
@@ -53,7 +54,7 @@ export function IpValidatorMessage(err, field: FormlyFieldConfig) {
 }
 
 @NgModule({
-	declarations: [AppComponent, RepeatTypeComponent, NoRepeatTypeComponent,],
+	declarations: [AppComponent, RepeatTypeComponent, NoRepeatTypeComponent, FormlyFieldButton],
 	imports: [
 		BrowserModule,
 		HttpClientModule,
@@ -91,6 +92,7 @@ export function IpValidatorMessage(err, field: FormlyFieldConfig) {
 			types: [
 				{ name: 'repeat', component: RepeatTypeComponent },
 				{ name: 'no repeat', component: NoRepeatTypeComponent },
+				{ name: 'button', component: FormlyFieldButton },
 			],
 		}),
 		FormlyMaterialModule,

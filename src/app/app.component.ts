@@ -1727,7 +1727,7 @@ export class AppComponent {
   },
   {
     className: 'costos-otros',
-    template: '<h3>Otros (por ejemplo embalaje</h3>',
+    template: '<h3>Otros (por ejemplo embalaje)</h3>',
   },
   {
     key: 'Detalle de materia prima',
@@ -1807,6 +1807,20 @@ export class AppComponent {
     template: '<div><h3>Ganancia estimada mensual (a - b) ingresos (a) menos gastos (b) es igual a ganancia estimada</h3></div>',
   },
   {
+    key: 'btn_calcular',
+    type: 'button',
+    templateOptions:{
+      text: 'Calcular',
+      onClick: ($event) => {
+        var t1 = '1'
+        var t2 = '2'
+        var x: number = +t1
+        var y: number = +t2
+        this.form.get('Total ganancia estimada (A-B)').setValue(x + y);
+      },
+    }
+  },
+  {
     key: 'Total ganancia estimada (A-B)',
     type: 'input',
     defaultValue: 'Un valor',
@@ -1814,7 +1828,7 @@ export class AppComponent {
       label: 'Total ganancia estimada (A-B)',
       placeholder: 'Ingrese un monto por unidad',
       required: true,
-      disabled: true,
+      disabled: false,
       pattern: '\\d{1,25}',
     }
   },
@@ -2211,7 +2225,6 @@ export class AppComponent {
     type: 'input',
     defaultValue: '20',
     templateOptions: {
-      //pattern: "\\d{1,3}",
       label: 'Cantidad de cuotas',
       disabled: true,
       placeholder: 'Cuotas',
