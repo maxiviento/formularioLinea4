@@ -1749,18 +1749,6 @@ export class AppComponent {
     }
   },
   {
-    key: 'Total Costos Variables por unidad (A)',
-    type: 'input',
-    defaultValue: 'Un valor',
-    templateOptions:{
-      label: 'Total Costos Variables por unidad (A)',
-      placeholder: 'Ingrese un monto por unidad',
-      required: true,
-      disabled: true,
-      pattern: '\\d{1,25}',
-    }
-  },
-  {
     key: 'Costos fijos',
     type: 'repeat',
     templateOptions: {
@@ -1769,10 +1757,10 @@ export class AppComponent {
     fieldArray: {
       fieldGroup: [
         {
-          key: 'Detalle: incluya luz, ga, impuestos, movilidad, couta crédito, etc, vinculados con el emprendimiento',
+          key: 'Detalle: incluya luz, gas, impuestos, movilidad, couta crédito, etc, vinculados con el emprendimiento',
           type: 'input',
           templateOptions:{
-            label: 'Detalle: incluya luz, ga, impuestos, movilidad, couta crédito, etc., vinculados con el emprendimiento',
+            label: 'Detalle: incluya luz, gas, impuestos, movilidad, couta crédito, etc., vinculados con el emprendimiento',
             placeholder: 'Ingrese un detalle',
             required: true,
           }
@@ -1802,36 +1790,8 @@ export class AppComponent {
       pattern: '\\d{1,25}',
     }
   },
-  {
-    className: 'ganancia-estimada',
-    template: '<div><h3>Ganancia estimada mensual (a - b) ingresos (a) menos gastos (b) es igual a ganancia estimada</h3></div>',
-  },
-  {
-    key: 'btn_calcular',
-    type: 'button',
-    templateOptions:{
-      text: 'Calcular',
-      onClick: ($event) => {
-        var t1 = '1'
-        var t2 = '2'
-        var x: number = +t1
-        var y: number = +t2
-        this.form.get('Total ganancia estimada (A-B)').setValue(x + y);
-      },
-    }
-  },
-  {
-    key: 'Total ganancia estimada (A-B)',
-    type: 'input',
-    defaultValue: 'Un valor',
-    templateOptions:{
-      label: 'Total ganancia estimada (A-B)',
-      placeholder: 'Ingrese un monto por unidad',
-      required: true,
-      disabled: false,
-      pattern: '\\d{1,25}',
-    }
-  },
+  
+  
 //--------------------------------------------------------------------------------------------------------
 {
   className: 'datos-cuadro-resultado-estimado-mensual',
@@ -1870,16 +1830,6 @@ export class AppComponent {
         templateOptions: {
           label: 'Precio del producto',
           placeholder: 'Ingrese un precio',
-          required: true,
-          pattern: '\\d{1,10}',
-        }
-      },
-      {
-        key: 'Ingreso Total Mensual',
-        type: 'input',
-        templateOptions: {
-          label: 'Ingreso Total Mensual',
-          placeholder: 'Ingrese un ingreso',
           required: true,
           pattern: '\\d{1,10}',
         }
@@ -1937,16 +1887,6 @@ export class AppComponent {
           pattern: '\\d{1,10}',
         }
       },
-      {
-        key: 'Total del gasto/costo',
-        type: 'input',
-        templateOptions: {
-          label: 'Total del gasto/costo',
-          placeholder: 'Ingrese un total',
-          required: true,
-          pattern: '\\d{1,10}',
-        }
-      },
     ]
   }
 },
@@ -1959,6 +1899,51 @@ export class AppComponent {
     disabled: true,
   }
 },
+{
+  className: 'ganancia-estimada',
+  template: '<div><h3>Ganancia estimada mensual (a - b) Ingresos (a) menos Gastos (b) es igual a Ganancia Estimada</h3></div>',
+},
+{
+  key: 'btn_calcular',
+  type: 'button',
+  templateOptions:{
+    text: 'Calcular',
+    onClick: ($event) => {
+      var sum_ingreso = 0
+      var sum_gastos = 0
+      var arr_ingresos: any = this.form.get('Ingresos mensuales').value
+      var arr_gastos: any = this.form.get('Gastos mensuales').value
+      
+      for(var i = 0; i<arr_ingresos.length;i++){
+        var cantidad:number = +arr_ingresos[i]['Cantidad de unidades a vender por mes']
+        var precio_producto:number = +arr_ingresos[i]['Precio del producto']
+        sum_ingreso = sum_ingreso + (cantidad * precio_producto)
+      }
+      for(var i = 0; i<arr_gastos.length;i++){
+        var cantidad:number = +arr_gastos[i]['Cantidad de unidades a vender por mes']
+        var precio_producto:number = +arr_gastos[i]['Precio del producto']
+        sum_gastos = sum_gastos + (cantidad * precio_producto)
+      }
+      
+      this.form.get('Suma total de ingresos mensuales (A)').setValue(sum_ingreso)
+      this.form.get('Suma total de los gastos mensuales (B)').setValue(sum_gastos)
+      this.form.get('Total ganancia estimada (A-B)').setValue(sum_ingreso - sum_gastos);
+    },
+  }
+},
+{
+  key: 'Total ganancia estimada (A-B)',
+  type: 'input',
+  defaultValue: 'Un valor',
+  templateOptions:{
+    label: 'Total ganancia estimada (A-B)',
+    placeholder: 'Ingrese un monto por unidad',
+    required: true,
+    disabled: true,
+    pattern: '\\d{1,25}',
+  }
+},
+
 //--------------------------------------------------------------------------------------------------------
     {
       className: 'datos-garante',
