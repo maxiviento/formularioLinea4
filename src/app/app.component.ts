@@ -782,7 +782,14 @@ export class AppComponent {
     className: 'datos-grupo-familiar',
     template: '<div><h2>Datos del Grupo Conviviente:</h2></div>',
   },
- 
+  {
+    key: 'Grupo familiar',
+    type: 'no repeat',
+    templateOptions: {
+      addText: 'Grupo familiar',
+    },
+    fieldArray: {
+      fieldGroup: [
   {
     key: 'Grupo Conviviente',
     type: 'repeat',
@@ -988,6 +995,45 @@ export class AppComponent {
         ],
       },
     },
+    {
+      key: 'btn_calcular',
+      type: 'button',
+      templateOptions:{
+        text: 'Calcular',
+        onClick: ($event) => {
+          var sum_ingreso = 0
+          
+          var clase_contentedora: any = this.form.get('Grupo familiar')
+          
+          var cont_valores = clase_contentedora.value
+          var arr_cont_valores = cont_valores[0]
+          console.log(arr_cont_valores)
+          var arr_ingresos: any = arr_cont_valores['Grupo Conviviente']
+          console.log(arr_ingresos)
+          
+          
+          for(var i = 0; i<arr_ingresos.length;i++){
+            var ingresos:number = +arr_ingresos[i]['Ingresos mensuales']
+            sum_ingreso = sum_ingreso + ingresos
+          }
+          
+          console.log(sum_ingreso)
+          var contenedor_campos = clase_contentedora.controls[0]
+          console.log(contenedor_campos)
+          contenedor_campos.get('Total ingresos familiares').setValue(sum_ingreso)
+        },
+      }
+    },
+    {
+      key: 'Total ingresos familiares',
+      type: 'input',
+      templateOptions:{
+        label: 'Total ingresos familiares',
+        required: true,
+        disabled: true,
+      }
+    },
+  ]}},
 
 
 //-------------------------------------------------------------------------------------------------------
@@ -1795,155 +1841,175 @@ export class AppComponent {
 //--------------------------------------------------------------------------------------------------------
 {
   className: 'datos-cuadro-resultado-estimado-mensual',
-  template: '<div><h2>Cuadro de resultado estimado mensual</h2><h3>Ventas - Ingresos mensuales</h3></div>',
+  template: '<div><h2>Cuadro de resultado estimado mensual</h2></div>',
 },
 {
-  key: 'Ingresos mensuales',
-  type: 'repeat',
+  key: 'Resultado estimado mensual',
+  type: 'no repeat',
   templateOptions: {
-    addText: 'Ingresar Ingreso mensual',
+    addText: 'Cuadro de resultado mensual',
   },
   fieldArray: {
     fieldGroup: [
       {
-        key: 'Producto y/o servicio a vender',
-        type: 'input',
+        className: 'datos-ventas-ingresos-mensuales',
+        template: '<div><h3>Ventas - Ingresos mensuales</h3></div>',
+      },
+      {
+        key: 'Ingresos mensuales',
+        type: 'repeat',
         templateOptions: {
-          label: 'Producto y/o servicio a vender',
-          placeholder: 'Ingrese un producto y/o servicio a vender',
-          required: true,
+          addText: 'Ingresar Ingreso mensual',
+        },
+        fieldArray: {
+          fieldGroup: [
+            {
+              key: 'Producto y/o servicio a vender',
+              type: 'input',
+              templateOptions: {
+                label: 'Producto y/o servicio a vender',
+                placeholder: 'Ingrese un producto y/o servicio a vender',
+                required: true,
+              }
+            },
+            {
+              key: 'Cantidad de unidades a vender por mes',
+              type: 'input',
+              templateOptions: {
+                label: 'Cantidad de unidades a vender por mes',
+                placeholder: 'Ingrese una cantidad',
+                required: true,
+                pattern: '\\d{1,10}',
+              }
+            },
+            {
+              key: 'Precio del producto',
+              type: 'input',
+              templateOptions: {
+                label: 'Precio del producto',
+                placeholder: 'Ingrese un precio',
+                required: true,
+                pattern: '\\d{1,10}',
+              }
+            },
+          ]
         }
       },
       {
-        key: 'Cantidad de unidades a vender por mes',
+        key: 'Suma total de ingresos mensuales (A)',
         type: 'input',
+        defaultValue: 'Un valor',
         templateOptions: {
-          label: 'Cantidad de unidades a vender por mes',
-          placeholder: 'Ingrese una cantidad',
-          required: true,
-          pattern: '\\d{1,10}',
+          label: 'Suma total de ingresos mensuales (A)',
+          disabled: true,
         }
       },
       {
-        key: 'Precio del producto',
-        type: 'input',
+        className: 'gastos-mensuales',
+        template: '<div><h3>Gastos mensuales</h3></div>',
+      },
+      {
+        key: 'Gastos mensuales',
+        type: 'repeat',
         templateOptions: {
-          label: 'Precio del producto',
-          placeholder: 'Ingrese un precio',
+          addText: 'Ingresar un gasto',
+        },
+        fieldArray: {
+          fieldGroup: [
+            {
+              key: 'Detalle los gastos y costos mensuales para generar y vender sus productos y servicios',
+              type: 'input',
+              templateOptions: {
+                label: 'Detalle los gastos y costos mensuales para generar y vender sus productos y servicios',
+                placeholder: 'Ingrese un detalle',
+                required: true,
+              }
+            },
+            {
+              key: 'Cantidad de unidades a vender por mes',
+              type: 'input',
+              templateOptions: {
+                label: 'Cantidad de unidades a vender por mes',
+                placeholder: 'Ingrese una cantidad',
+                required: true,
+                pattern: '\\d{1,10}',
+              }
+            },
+            {
+              key: 'Precio del producto',
+              type: 'input',
+              templateOptions: {
+                label: 'Precio del producto',
+                placeholder: 'Ingrese un precio',
+                required: true,
+                pattern: '\\d{1,10}',
+              }
+            },
+          ]
+        }
+      },
+      {
+        key: 'Suma total de los gastos mensuales (B)',
+        type: 'input',
+        defaultValue: 'Un valor',
+        templateOptions: {
+          label: 'Suma total de gastos mensuales (B)',
+          disabled: true,
+        }
+      },
+      {
+        className: 'ganancia-estimada',
+        template: '<div><h3>Ganancia estimada mensual (a - b) Ingresos (a) menos Gastos (b) es igual a Ganancia Estimada</h3></div>',
+      },
+      {
+        key: 'btn_calcular',
+        type: 'button',
+        templateOptions:{
+          text: 'Calcular',
+          onClick: ($event) => {
+            var sum_ingreso = 0
+            var sum_gastos = 0
+            var clase_contentedora: any = this.form.get('Resultado estimado mensual')
+            
+            var cont_valores = clase_contentedora.value
+            var arr_cont_valores = cont_valores[0]
+            console.log(arr_cont_valores)
+            var arr_ingresos: any = arr_cont_valores['Ingresos mensuales']
+            var arr_gastos: any = arr_cont_valores['Gastos mensuales']
+            console.log(arr_gastos)
+            console.log(arr_ingresos)
+            
+            for(var i = 0; i<arr_ingresos.length;i++){
+              var cantidad:number = +arr_ingresos[i]['Cantidad de unidades a vender por mes']
+              var precio_producto:number = +arr_ingresos[i]['Precio del producto']
+              sum_ingreso = sum_ingreso + (cantidad * precio_producto)
+            }
+            for(var i = 0; i<arr_gastos.length;i++){
+              var cantidad:number = +arr_gastos[i]['Cantidad de unidades a vender por mes']
+              var precio_producto:number = +arr_gastos[i]['Precio del producto']
+              sum_gastos = sum_gastos + (cantidad * precio_producto)
+            }
+            console.log(sum_gastos)
+            console.log(sum_ingreso)
+            var contenedor_campos = clase_contentedora.controls[0]
+            contenedor_campos.get('Suma total de ingresos mensuales (A)').setValue(sum_ingreso)
+            contenedor_campos.get('Suma total de los gastos mensuales (B)').setValue(sum_gastos)
+            contenedor_campos.get('Total ganancia estimada (A-B)').setValue(sum_ingreso - sum_gastos);
+          },
+        }
+      },
+      {
+        key: 'Total ganancia estimada (A-B)',
+        type: 'input',
+        templateOptions:{
+          label: 'Total ganancia estimada (A-B)',
           required: true,
-          pattern: '\\d{1,10}',
+          disabled: true,
         }
       },
     ]
   }
 },
-{
-  key: 'Suma total de ingresos mensuales (A)',
-  type: 'input',
-  defaultValue: 'Un valor',
-  templateOptions: {
-    label: 'Suma total de ingresos mensuales (A)',
-    disabled: true,
-  }
-},
-{
-  className: 'gastos-mensuales',
-  template: '<div><h3>Gastos mensuales</h3></div>',
-},
-{
-  key: 'Gastos mensuales',
-  type: 'repeat',
-  templateOptions: {
-    addText: 'Ingresar un gasto',
-  },
-  fieldArray: {
-    fieldGroup: [
-      {
-        key: 'Detalle los gastos y costos mensuales para generar y vender sus productos y servicios',
-        type: 'input',
-        templateOptions: {
-          label: 'Detalle los gastos y costos mensuales para generar y vender sus productos y servicios',
-          placeholder: 'Ingrese un detalle',
-          required: true,
-        }
-      },
-      {
-        key: 'Cantidad de unidades a vender por mes',
-        type: 'input',
-        templateOptions: {
-          label: 'Cantidad de unidades a vender por mes',
-          placeholder: 'Ingrese una cantidad',
-          required: true,
-          pattern: '\\d{1,10}',
-        }
-      },
-      {
-        key: 'Precio del producto',
-        type: 'input',
-        templateOptions: {
-          label: 'Precio del producto',
-          placeholder: 'Ingrese un precio',
-          required: true,
-          pattern: '\\d{1,10}',
-        }
-      },
-    ]
-  }
-},
-{
-  key: 'Suma total de los gastos mensuales (B)',
-  type: 'input',
-  defaultValue: 'Un valor',
-  templateOptions: {
-    label: 'Suma total de gastos mensuales (B)',
-    disabled: true,
-  }
-},
-{
-  className: 'ganancia-estimada',
-  template: '<div><h3>Ganancia estimada mensual (a - b) Ingresos (a) menos Gastos (b) es igual a Ganancia Estimada</h3></div>',
-},
-{
-  key: 'btn_calcular',
-  type: 'button',
-  templateOptions:{
-    text: 'Calcular',
-    onClick: ($event) => {
-      var sum_ingreso = 0
-      var sum_gastos = 0
-      var arr_ingresos: any = this.form.get('Ingresos mensuales').value
-      var arr_gastos: any = this.form.get('Gastos mensuales').value
-      
-      for(var i = 0; i<arr_ingresos.length;i++){
-        var cantidad:number = +arr_ingresos[i]['Cantidad de unidades a vender por mes']
-        var precio_producto:number = +arr_ingresos[i]['Precio del producto']
-        sum_ingreso = sum_ingreso + (cantidad * precio_producto)
-      }
-      for(var i = 0; i<arr_gastos.length;i++){
-        var cantidad:number = +arr_gastos[i]['Cantidad de unidades a vender por mes']
-        var precio_producto:number = +arr_gastos[i]['Precio del producto']
-        sum_gastos = sum_gastos + (cantidad * precio_producto)
-      }
-      
-      this.form.get('Suma total de ingresos mensuales (A)').setValue(sum_ingreso)
-      this.form.get('Suma total de los gastos mensuales (B)').setValue(sum_gastos)
-      this.form.get('Total ganancia estimada (A-B)').setValue(sum_ingreso - sum_gastos);
-    },
-  }
-},
-{
-  key: 'Total ganancia estimada (A-B)',
-  type: 'input',
-  defaultValue: 'Un valor',
-  templateOptions:{
-    label: 'Total ganancia estimada (A-B)',
-    placeholder: 'Ingrese un monto por unidad',
-    required: true,
-    disabled: true,
-    pattern: '\\d{1,25}',
-  }
-},
-
 //--------------------------------------------------------------------------------------------------------
     {
       className: 'datos-garante',
