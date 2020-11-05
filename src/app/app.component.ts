@@ -1476,7 +1476,14 @@ export class AppComponent {
     className: 'datos-inversion-realizada',
     template: '<div><h2>Inversión realizada (Activo destinado al proyecto):</h2></div>',
   },
-
+  {
+    key: 'Boton inversion',
+    type: 'no repeat',
+    templateOptions: {
+      addText: 'Insertar tabla de Inverisión',
+    },
+    fieldArray: {
+      fieldGroup: [
   {
     key: 'Inversión realizada',
     type: 'repeat',
@@ -1542,21 +1549,58 @@ export class AppComponent {
     }
   },
   {
-    key: 'Monto Total de la inversión realizada',
-    type: 'input',
-    defaultValue: 'Algun monto',
+    key: 'btn_calcular',
+    type: 'button',
     templateOptions:{
-      label: 'Monto Total de la inversión realizada',
-      pattern: '\\d{1,25}',
-      placeholder: 'Ingrese una cantidad',
-      disabled: true,
+      text: 'Calcular',
+      onClick: ($event) => {
+        var sum_ingreso = 0
+        
+        var clase_contentedora: any = this.form.get('Boton inversion')
+        
+        var cont_valores = clase_contentedora.value
+        var arr_cont_valores = cont_valores[0]
+        console.log(arr_cont_valores)
+        var arr_ingresos: any = arr_cont_valores['Inversión realizada']
+        console.log(arr_ingresos)
+        
+        
+        for(var i = 0; i<arr_ingresos.length;i++){
+          var cantidad:number = +arr_ingresos[i]['Cantidad']
+          var precio:number = +arr_ingresos[i]['Precio']
+          sum_ingreso = sum_ingreso + (cantidad * precio)
+        }
+        
+        console.log(sum_ingreso)
+        var contenedor_campos = clase_contentedora.controls[0]
+        console.log(contenedor_campos)
+        contenedor_campos.get('Monto Total de la inversión realizada').setValue(sum_ingreso)
+      },
     }
   },
+  {
+    key: 'Monto Total de la inversión realizada',
+    type: 'input',
+    templateOptions:{
+      label: 'Monto Total de la inversión realizada',
+      disabled: true,
+      required: true
+    }
+  },
+]}},
 //--------------------------------------------------------------------------------------------------------
   {
     className: 'datos-deuda-emprendimiento',
     template: '<div><h2>Deuda del emprendimiento (pasivo):</h2></div>',
   },
+  {
+    key: 'Boton deuda del emprendimiento',
+    type: 'no repeat',
+    templateOptions: {
+      addText: 'Insertar tabla de Deuda',
+    },
+    fieldArray: {
+      fieldGroup: [
   {
     key: 'Deuda del emprendimiento',
     type: 'repeat',
@@ -1589,20 +1633,57 @@ export class AppComponent {
     }
   },
   {
+    key: 'btn_calcular',
+    type: 'button',
+    templateOptions:{
+      text: 'Calcular',
+      onClick: ($event) => {
+        var sum_ingreso = 0
+        
+        var clase_contentedora: any = this.form.get('Boton deuda del emprendimiento')
+        
+        var cont_valores = clase_contentedora.value
+        var arr_cont_valores = cont_valores[0]
+        console.log(arr_cont_valores)
+        var arr_ingresos: any = arr_cont_valores['Deuda del emprendimiento']
+        console.log(arr_ingresos)
+        
+        
+        for(var i = 0; i<arr_ingresos.length;i++){
+          var monto:number = +arr_ingresos[i]['Monto']
+          sum_ingreso = sum_ingreso + monto
+        }
+        
+        console.log(sum_ingreso)
+        var contenedor_campos = clase_contentedora.controls[0]
+        console.log(contenedor_campos)
+        contenedor_campos.get('Monto Total de la deuda').setValue(sum_ingreso)
+      },
+    }
+  },
+  {
     key: 'Monto Total de la deuda',
     type: 'input',
-    defaultValue: 'Un monto',
     templateOptions: {
       label: 'Monto Total de la deuda',
       disabled: true,
+      required: true
     }
   },
+]}},
 //--------------------------------------------------------------------------------------------------------
   {
     className: 'datos-necesidades-inversion',
     template: '<div><h2>Necesidades de inversión:</h2></div>',
   },
-
+  {
+    key: 'Boton necesidades',
+    type: 'no repeat',
+    templateOptions: {
+      addText: 'Insertar tabla de Necesidades de Inversión',
+    },
+    fieldArray: {
+      fieldGroup: [
   {
     key: 'Necesidades de inversión',
     type: 'repeat',
@@ -1668,13 +1749,40 @@ export class AppComponent {
     }
   },
   {
-    key: 'Monto Total de la inversión realizada',
-    type: 'input',
-    defaultValue: 'Algun monto',
+    key: 'btn_calcular',
+    type: 'button',
     templateOptions:{
-      label: 'Monto Total de la inversión realizada',
-      pattern: '\\d{1,25}',
-      placeholder: 'Ingrese una cantidad',
+      text: 'Calcular',
+      onClick: ($event) => {
+        var sum_ingreso = 0
+        
+        var clase_contentedora: any = this.form.get('Boton necesidades')
+        
+        var cont_valores = clase_contentedora.value
+        var arr_cont_valores = cont_valores[0]
+        console.log(arr_cont_valores)
+        var arr_ingresos: any = arr_cont_valores['Necesidades de inversión']
+        console.log(arr_ingresos)
+        
+        
+        for(var i = 0; i<arr_ingresos.length;i++){
+          var cantidad:number = +arr_ingresos[i]['Cantidad']
+          var precio:number = +arr_ingresos[i]['Precio']
+          sum_ingreso = sum_ingreso + (cantidad * precio)
+        }
+        
+        console.log(sum_ingreso)
+        var contenedor_campos = clase_contentedora.controls[0]
+        console.log(contenedor_campos)
+        contenedor_campos.get('Monto Total de la inversión a realizar').setValue(sum_ingreso)
+      },
+    }
+  },
+  {
+    key: 'Monto Total de la inversión a realizar',
+    type: 'input',
+    templateOptions:{
+      label: 'Monto Total de la inversión a realizar',
       disabled: true,
     }
   },
@@ -1713,11 +1821,20 @@ export class AppComponent {
       placeholder: 'Ingrese una fuente',
     }
   },
+]}},
 //--------------------------------------------------------------------------------------------------------
   {
     className: 'datos-precio-venta',
     template: '<div><h2>Determinar el precio de venta de su producto o servicio principal</h2></div>',
   },
+  {
+    key: 'Boton precio de venta',
+    type: 'no repeat',
+    templateOptions: {
+      addText: 'Insertar tabla de Precio de Venta',
+    },
+    fieldArray: {
+      fieldGroup: [
   {
     key: 'Unidades estimadas a vender mensualmente',
     type: 'input',
@@ -1737,6 +1854,7 @@ export class AppComponent {
       placeholder: 'Ingrese un producto'
     }
   },
+ 
   {
     className: 'datos-costos-variables',
     template: '<div><h3>Costos variables</h3></div>',
@@ -1794,6 +1912,7 @@ export class AppComponent {
       pattern: '\\d{1,25}',
     }
   },
+
   {
     key: 'Costos fijos',
     type: 'repeat',
@@ -1825,18 +1944,53 @@ export class AppComponent {
     }
   },
   {
-    key: 'Total Costos Fijos por unidad (B)',
-    type: 'input',
-    defaultValue: 'Un valor',
+    key: 'btn_calcular',
+    type: 'button',
     templateOptions:{
-      label: 'Total Costos Fijos por unidad (B)',
-      placeholder: 'Ingrese un monto por unidad',
-      required: true,
-      disabled: true,
-      pattern: '\\d{1,25}',
+      text: 'Calcular',
+      onClick: ($event) => {
+        var sum_costos:number = 0
+
+        var clase_contentedora: any = this.form.get('Boton precio de venta')
+        
+        var cont_valores = clase_contentedora.value
+        var arr_cont_valores = cont_valores[0]
+        console.log(arr_cont_valores)
+        var arr_costos_variables: any = arr_cont_valores['Costos variables']
+        var arr_costos_fijos: any = arr_cont_valores['Costos fijos']
+
+        
+        for(var i = 0; i<arr_costos_variables.length;i++){
+
+          var precio_producto:number = +arr_costos_variables[i]['Pesos por unidad']
+          sum_costos = sum_costos + precio_producto
+        }
+        var costos_otros:number = +arr_cont_valores['Pesos por unidad']
+        console.log(costos_otros)
+
+        sum_costos = sum_costos + costos_otros
+        for(var i = 0; i<arr_costos_fijos.length;i++){
+
+          var precio_producto:number = +arr_costos_fijos[i]['Pesos por unidad']
+          sum_costos = sum_costos + precio_producto
+        }
+
+        var contenedor_campos = clase_contentedora.controls[0]
+        contenedor_campos.get('Total Costos Fijos y Variables').setValue(sum_costos)
+
+      },
     }
   },
-  
+  {
+    key: 'Total Costos Fijos y Variables',
+    type: 'input',
+    templateOptions:{
+      label: 'Total Costos Fijos Fijos y Variables',
+      required: true,
+      disabled: true,
+    }
+  },
+]}},
   
 //--------------------------------------------------------------------------------------------------------
 {
