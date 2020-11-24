@@ -1039,7 +1039,7 @@ export class AppComponent {
 
   {
     className: 'datos-necesidades-a-cubrir',
-    template: '<div><h2>Necesidad  a cubrir con el micro préstamo:</h2></div>',
+    template: '<div><h2>Necesidad a cubrir con el micro préstamo:</h2></div>',
   },
   {
     key: 'Boton necesidades',
@@ -1050,42 +1050,118 @@ export class AppComponent {
     fieldArray: {
       fieldGroup: [
         {
+          className: 'datos-detalles',
+          template: '<div><h3>Deberá detallar cuales son los productos que desea adquirir y el precio estimado de mercado de los mismos.</h3></div>',
+        },
+        {
+          key: 'Necesidades',
+          type: 'repeat',
+          templateOptions: {
+            addText: 'Agregar Necesidad'
+          },
+          fieldArray:{
+            fieldGroup: [
+              {
+                key: 'Descripción',
+                type: 'input',
+                templateOptions:{
+                  label: 'Descripción',
+                  placeholder: 'Ingrese una descripción',
+                  required: true,
+                }
+              },
+              {
+                key: 'Precio',
+                type: 'input',
+                templateOptions: {
+                  label: 'Precio',
+                  placeholder: 'Ingrese un precio',
+                  pattern: '\\d{1,10}',
+                  required: true
+                }
+              },
+            ]
+          }
+        },
+        {
           key: 'btn_calcular',
           type: 'button',
           templateOptions:{
-            text: 'Calcular',
+            text: 'Calcular Total',
             onClick: ($event) => {
-              var sum_ingreso = 0
+              var sum_necesidades = 0
               
               var clase_contentedora: any = this.form.get('Boton necesidades')
               
               var cont_valores = clase_contentedora.value
               var arr_cont_valores = cont_valores[0]
               console.log(arr_cont_valores)
-              var arr_ingresos: any = arr_cont_valores['Necesidades de inversión']
+              var arr_ingresos: any = arr_cont_valores['Necesidades']
               console.log(arr_ingresos)
               
               
               for(var i = 0; i<arr_ingresos.length;i++){
-                var cantidad:number = +arr_ingresos[i]['Cantidad']
+        
                 var precio:number = +arr_ingresos[i]['Precio']
-                sum_ingreso = sum_ingreso + (cantidad * precio)
+                sum_necesidades = sum_necesidades + precio
               }
               
-              console.log(sum_ingreso)
+              console.log(sum_necesidades)
               var contenedor_campos = clase_contentedora.controls[0]
               console.log(contenedor_campos)
-              contenedor_campos.get('Monto Total de la inversión a realizar').setValue(sum_ingreso)
+              contenedor_campos.get('Monto Total de las necesidades').setValue(sum_necesidades)
             },
           }
         },
         {
-          key: 'Monto Total de la inversión a realizar',
+          className: 'datos-monto',
+          template: '<p>',
+        },
+        {
+          key: 'Monto Total de las necesidades',
           type: 'input',
+          defaultValue: '0',
           templateOptions:{
-            label: 'Monto Total de la inversión a realizar',
+            label: 'Monto Total de las necesidades',
             disabled: true,
           }
+        },
+      ]
+    }
+  },
+//--------------------------------------------------------------------------------------------------------
+  {
+    className: 'datos-emprendimiento',
+    template: '<div><h2>Informe sobre el emprendimiento</h2></div>',
+  },
+  {
+    key: 'Datos informe sobre el emprendimiento',
+    type: 'no repeat',
+    templateOptions:{
+      addText: 'Agregar informe sobre el emprendimiento'
+    },
+    fieldArray:{
+      fieldGroup:[
+        {
+          template: '<div>En este campo deberá detallarnos sobre el proyecto que desea realizar o mejorar (si ya está en marcha)  con el dinero de nuestro financiamiento. Entendiendo que deba responder las siguientes preguntas generales y a modo de orientativo:</div>'
+        },
+        {
+          template: '<ul><li>Que productos o servicios vende o venderá.</li><li>Cuál es el proceso de producción del bien o servicio, dónde lo va realizar, como, con quien, en que consiste, y el tiempo que le insumirá.</li><li>Cuántas unidades vende o proyecta vender, a qué precio; detalle la forma en que calcula el precio del producto. Efectúe un breve resumen de ingresos y gastos estimados del proyecto en forma mensual</li><li>Donde cree vender su producto, actividades pensadas para lograrlo, etc.</li><li>Cuenta con elementos para realizar el proyecto (maquinaria, materia prima, etc).</li><li>Que es lo que desea comprar con el micropréstamo.</li></ul>'
+        },
+        {
+          template: '<p><h3>PARA MAYOR FACILIDAD, LOS DATOS NUMÉRICOS DEL PROYECTO PODRÁ REALIZARLO EN UNA HOJA Y CARGARLOS COMO UNA FOTO CONJUNTAMENTE CON EL RESTO DE INFORMACIÓN A SUMINISTRARNOS</h3>'
+        },
+        {
+          template: '<h3>TENGA EN CUENTA QUE LO BRINDADO POR UD. AQUÍ NOS SERVIRÁ PARA ANALIZAR Y  LUEGO APROBAR  EL MICROPRESTAMO, SI CORRESPONDIERE.</h3>'
+        },
+        {
+          key: 'Informe del emprendimiento',
+          type: 'textarea',
+          templateOptions: {
+            label: 'Informe del emprendimiento',
+            placeholder: 'Ingrese un informe del emprendimiento',
+            rows: 15,
+          },
         },
       ]
     }
@@ -1095,6 +1171,7 @@ export class AppComponent {
       className: 'datos-garante',
       template: '<div><h2>Datos de la persona que Garantiza el Micropréstamo</h2></div>',
     },
+    //AGREGAR CHECKBOX QUE PREGUNTE SI EL GARANTE ES LA MISMA PERSONA QUE LO SOLICITA
     {
     key: 'Garante',
     type: 'no repeat',
