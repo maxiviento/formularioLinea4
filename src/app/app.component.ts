@@ -1171,7 +1171,6 @@ export class AppComponent {
       className: 'datos-garante',
       template: '<div><h2>Datos de la persona que Garantiza el Micropréstamo</h2></div>',
     },
-    //AGREGAR CHECKBOX QUE PREGUNTE SI EL GARANTE ES LA MISMA PERSONA QUE LO SOLICITA
     {
     key: 'Garante',
     type: 'no repeat',
@@ -1180,6 +1179,21 @@ export class AppComponent {
     },
     fieldArray: {
       fieldGroup: [
+        {
+          key: 'Tipo de garante',
+          type: 'select',
+          templateOptions: {
+            label: 'Tipo de garante',
+            options:[
+              {value: 'Presento garante', label: 'Presento garante'},
+              {value: 'Soy autogarante', label: 'Soy autogarante'}
+            ]
+          }
+        },
+        {
+          className: 'info-garante',
+          template: '<div><h3>En caso de no ser autogarante rellene los espacios de abajo</h3></div>',
+        },
 
     {
       key: 'Apellido',
@@ -1187,7 +1201,6 @@ export class AppComponent {
       templateOptions: {
         label: 'Apellido',
         placeholder: 'Ingrese su apellido',
-        required: true,
       },
     },
     {
@@ -1196,7 +1209,6 @@ export class AppComponent {
       templateOptions: {
         label: 'Nombres',
         placeholder: 'Ingrese sus nombres',
-        required: true,
       },
     },
     {
@@ -1206,7 +1218,6 @@ export class AppComponent {
         pattern: "\\d{7,8}",
         label: 'DNI',
         placeholder: 'Su Dni',
-        required: true,
       },
     },
     {
@@ -1215,7 +1226,6 @@ export class AppComponent {
       templateOptions: {
         label: 'Calle',
         placeholder: 'Direccion',
-        required: true,
       },
     },
     {
@@ -1225,7 +1235,6 @@ export class AppComponent {
         pattern: "\\d{1,5}",
         label: 'Número',
         placeholder: 'Número',
-        required: true,
       },
     },
     {
@@ -1285,7 +1294,6 @@ export class AppComponent {
         label: 'Departamento',
         placeholder: 'Placeholder',
         description: 'Departamento',
-        required: true,
         options: [
             { value: 'CAPITAL', label:'CAPITAL'  },
             { value: 'CALAMUCHITA', label:'CALAMUCHITA'  },
@@ -1322,7 +1330,6 @@ export class AppComponent {
       templateOptions: {
         label: 'Localidad',
         placeholder: 'Localidad',
-        required: true,
       },
     },
     {
@@ -1331,7 +1338,6 @@ export class AppComponent {
       templateOptions: {
         label: 'C.P.',
         placeholder: 'Ingrese C.P.',
-        required: true,
       },
     },
     {
@@ -1341,7 +1347,6 @@ export class AppComponent {
         pattern: "\\d{1,25}",
         label: 'Teléfono',
         placeholder: 'Ingrese teléfono de contacto',
-        required: true,
       },
     },
     {
@@ -1366,7 +1371,6 @@ export class AppComponent {
         type: 'date',
         label: 'Fecha de nacimiento',
         placeholder: 'Fecha de nacimiento dd/mm/aaaa',
-        required: true,
       },
     },
     {
