@@ -1035,1135 +1035,137 @@ export class AppComponent {
     },
   ]}},
 
-
-//-------------------------------------------------------------------------------------------------------
-
-  {
-    className: 'datos-ingresos-y-gastos',
-    template: '<div><h2>Datos ingresos y gastos:</h2></div>',
-  },
+//--------------------------------------------------------------------------------------------------------
 
   {
-    key: 'Ingresos y gastos',
-    type: 'no repeat',
-    templateOptions: {
-      addText: 'Ingresos y Gastos:',
-    },
-    fieldArray: {
-      fieldGroup: [
-        {
-          className: 'datos-ingresos',
-          template: '<div><h2>Datos de Ingresos:</h2></div>',
-        },
-        {
-          key: 'Ingresos por el emprendimiento',
-          type: 'input',
-          defaultValue: '0',
-          templateOptions:{
-            required: true,
-            placeholder: 'Ingrese un monto',
-            label: 'Ingresos por el emprendimiento',
-            pattern: "\\d{1,25}",
-          }
-        },
-        {
-          key: 'Otros (Rentas, jubilaciónes, etc)',
-          type: 'input',
-          defaultValue: '0',
-          templateOptions:{
-            placeholder: 'Ingrese un monto',
-            label: 'Otros (Rentas, jubilaciónes, etc)',
-            pattern: "\\d{1,25}",
-          }
-        },
-        {
-          key: 'Ingreso total del grupo familiar del hogar',
-          type: 'input',
-          defaultValue: '0',
-          templateOptions:{
-            required: true,
-            placeholder: 'Ingrese un monto',
-            label: 'Ingreso total del grupo familiar del hogar',
-            pattern: "\\d{1,25}",
-          }
-        },
-        {
-          key: 'Total ingresos',
-          type: 'input',
-          defaultValue: '0',
-          templateOptions:{
-            required: true,
-            placeholder: 'Ingrese un monto',
-            label: 'Total ingresos',
-            pattern: "\\d{1,25}",
-          }
-        },
-        {
-          className: 'datos-gastos',
-          template: '<div><h2>Datos de Gastos:</h2></div>',
-        },
-        {
-          key: 'Alimentos',
-          type: 'input',
-          defaultValue: '0',
-          templateOptions:{
-            label: 'Alimentos',
-            placeholder: 'Ingrese un monto',
-            pattern: "\\d{1,25}",
-          }
-        },
-        {
-          key: 'Alquiler',
-          type: 'input',
-          defaultValue: '0',
-          templateOptions:{
-            label: 'Alquiler',
-            placeholder: 'Ingrese un monto',
-            pattern: "\\d{1,25}",
-          }
-        },
-        {
-          key: 'Impuestos (Municipal, Provincial, Nacional)',
-          type: 'input',
-          defaultValue: '0',
-          templateOptions:{
-            label: 'Impuestos (Municipal, Provincial, Nacional)',
-            placeholder: 'Ingrese un monto',
-            required: true,
-            pattern: "\\d{1,25}",
-          }
-        },
-        {
-          key: 'Servicios (Luz, Agua, Gas, Teléfono)',
-          type: 'input',
-          defaultValue: '0',
-          templateOptions:{
-            label: 'Servicios (Luz, Agua, Gas, Teléfono)',
-            placeholder: 'Ingrese un monto',
-            required: true,
-            pattern: "\\d{1,25}",
-          }
-        },
-        {
-          key: 'Créditos (bancos, Financieras, Electrodomésticos)',
-          type: 'input',
-          defaultValue: '0',
-          templateOptions:{
-            label: 'Créditos (bancos, Financieras, Electrodomésticos)',
-            placeholder: 'Ingrese un monto',
-            pattern: "\\d{1,25}",
-          }
-        },
-        {
-          key: 'Movilidad (Transporte, Combustible)',
-          type: 'input',
-          defaultValue: '0',
-          templateOptions:{
-            label: 'Movilidad (Transporte, Combustible)',
-            placeholder: 'Ingrese un monto',
-            pattern: "\\d{1,25}",
-          }
-        },
-        {
-          key: 'Otros (Educación, Salud, Vestimenta, Recreación)',
-          type: 'input',
-          defaultValue: '0',
-          templateOptions:{
-            label: 'Otros (Educación, Salud, Vestimenta, Recreación)',
-            placeholder: 'Ingrese un monto',
-            pattern: "\\d{1,25}",
-          }
-        },
-        {
-          key: 'Total Gastos',
-          type: 'input',
-          defaultValue: '0',
-          templateOptions:{
-            label: 'Total Gastos',
-            placeholder: 'Ingrese un monto',
-            pattern: "\\d{1,25}",
-          }
-        },
-        {
-          key: 'Capacidad de ahorro total',
-          type: 'input',
-          defaultValue: '0',
-          templateOptions:{
-            label: 'Capacidad de ahorro total (total ingresos) - (total gastos)',
-            placeholder: 'Ingrese un monto',
-            pattern: "\\d{1,25}",
-          }
-        }
-      ],
-    }
-  },
- 
-  //--------------------------------------------------------------------------------------------------------
-  {
-    className: 'datos-organizacion',
-    template: '<div><h2>Miembros de la Organización</h2></div>',
-  },
-  {
-    key: 'Grupo Conviviente',
-    type: 'repeat',
-    templateOptions: {
-      addText: 'Ingresar miembro de la organización',
-    },
-    fieldArray: {
-      fieldGroup: [
-        {
-          key: 'Apellido y Nombre',
-          type: 'input',
-          templateOptions: {
-            label: 'Apellido y nombre',
-            required: true,
-            placeholder: 'Ingrese un Nombre y un Apellido',
-          }
-        },
-        {
-          key: 'Relación con el solicitante',
-          type: 'input',
-          templateOptions: {
-            label: 'Relación con el solicitante',
-            required: true,
-            placeholder: 'Ingrese una relación',
-          }
-        },
-        {
-          key: 'Edad',
-          type: 'input',
-          templateOptions: {
-            label: 'Edad',
-            required: true,
-            pattern: '\\d{2,3}',
-            placeholder: 'Ingrese una edad',
-          }
-        },
-        {
-          key: 'Tarea a desarrollar en el emprendimiento',
-          type: 'input',
-          templateOptions: {
-            label: 'Tarea (A desarrollar en el emprendimiento)',
-            required: true,
-            placeholder: 'Ingrese una tarea',
-          }
-        },
-        {
-          key: 'Horario de trabajo',
-          type: 'input',
-          templateOptions: {
-            label: 'Horario de trabajo (A desarrollar en el emprendimiento)',
-            required: true,
-            placeholder: 'Ingrese un horario',
-          }
-        },
-        {
-          key: 'Sueldo o remuneración',
-          type: 'input',
-          templateOptions: {
-            label: 'Sueldo o remuneración',
-            required: true,
-            pattern: '\\d{1,25}',
-            placeholder: 'Ingrese un sueldo o remuneración',
-          }
-        },
-        {
-          key: 'Antecedentes laborales',
-          type: 'select',
-          templateOptions: {
-            label: 'Antecedentes laborales',
-            required: true,
-            options: [
-              {value: 'Si', label: 'Si'},
-              {value: 'No', label: 'No'},
-            ],
-          }
-        }
-      ]
-    }
-  },
-//--------------------------------------------------------------------------------------------------------
-  {
-    className: 'datos-mercado-comercializacion',
-    template: '<div><h2>Datos del Mercado y la Comercialización</h2></div>',
-  },
-  {
-    key: 'Mercado y comercialización',
-    type: 'no repeat',
-    templateOptions: {
-      addText: 'Mercado y comercialización:',
-    },
-    fieldArray: {
-      fieldGroup: [
-        {
-          key: '¿Dónde vende?',
-          type: 'select',
-          templateOptions:{
-            label: 'Dónde vende?',
-            required: true,
-            options:[
-              {value: 'En local establecido', label: 'En local establecido'},
-              {value: 'En forma ambulante', label: 'En forma ambulante'},
-              {value: 'En puesto fijo en la calle', label: 'En puesto fijo en la calle'},
-              {value: 'En ferias', label: 'En ferias'},
-              {value: 'Distribución a domicilio', label: 'Distribución a domicilio'},
-              {value: 'Otros', label: 'Otros'},
-            ],
-          }
-        },
-        {
-          key: '¿Cómo realiza su ventas o producciónes?',
-          type: 'select',
-          templateOptions:{
-            label: '¿Cómo realiza su ventas o producciónes?',
-            required: true,
-            options:[
-              {value: 'Sólo produce y vende a pedido del cliente', label: 'Sólo produce y vende a pedido del cliente'},
-              {value: 'A pedido del cliente y ofertando sus productos a otros', label: 'A pedido del cliente y ofertando sus productos a otros'},
-              {value: 'Ofertando sus productos sin pedido previo', label: 'Ofertando sus productos sin pedido previo'},
-            ],
-          }
-        },
-        {
-          key: '¿Cómo fija los precios de venta?',
-          type: 'select',
-          templateOptions:{
-            label: '¿Cómo fija los precios de venta?',
-            required: true,
-            options:[
-              {value: 'De acuerdo al precio de otros colegas', label: 'De acuerdo al precio de otros colegas'},
-              {value: 'De acuerdo al costo más un margen de ganancia', label: 'De acuerdo al costo más un margen de ganancia'},
-              {value: 'Según quién sea el cliente considerando mis costos', label: 'Según quién sea al cliente considerando mis costos'},
-              {value: 'Según quién sea el cliente sin considerar mis costos', label: 'Según quién sea el cliente sin considerar mis costos'},
-              {value: 'El cliente fija mi precio de venta', label: 'El cliente fija mi precio de venta'},
-              {value: 'Otros', label: 'Otros'},
-            ],
-          }
-        },
-        {
-          key: '¿Puede estimar la cantidad de clientes que tiene?',
-          type: 'select',
-          templateOptions:{
-            required: true,
-            label: '¿Puede estimar la cantidad de clientes que tiene?',
-            options: [
-              {value: 'Si', label: 'Si'},
-              {value: 'No', label: 'No'},
-            ]
-          }
-        },
-        {
-          key: '¿Cuántos son?',
-          type: 'input',
-          templateOptions:{
-            label: '¿Cuántos son?',
-            placeholder: 'Ingrese una cantidad',
-            pattern: '\\d{1,4}',
-          }
-        },
-        {
-          key: '¿Cómo compra habitualmente?',
-          type: 'select',
-          templateOptions:{
-            label: '¿Cómo compra habitualmente?',
-            required: true,
-            options: [
-              {value: 'Cada vez que necesita (No tiene stock)', label: 'Cada vez que necesita (No tiene stock)'},
-              {value: 'Cada semana', label: 'Cada semana'},
-              {value: 'Cada mes', label: 'Cada mes'},
-              {value: 'Cada cierto tiempo', label: 'Cada cierto tiempo'},
-              {value: 'Cada vez que hay una oferta', label: 'Cada vez que hay una oferta'},
-            ]
-          }
-        },
-        {
-          className: 'datos-pago-compra-venta',
-          template: '<div><h2>Formas de pago de las compras y ventas</h2><h3>Forma de pago de las compras</h3></div>',
-        },
-        {
-          key: 'Porcentaje efectivo (compra)',
-          type: 'input',
-          templateOptions:{
-            label: 'El ___% es en efectivo',
-            pattern: '\\d{1,3}'
-          }
-        },
-        {
-          key: 'Porcentaje crédito proveedores (compra)',
-          type: 'input',
-          templateOptions:{
-            label: 'El ___% es crédito de proveedores',
-            pattern: '\\d{1,3}'
-          }
-        },
-        {
-          key: 'Plazo de pago promedio a x días (compra)',
-          type: 'input',
-          templateOptions:{
-            label: 'Plazo de pago promedio a __ días',
-            pattern: '\\d{1,3}',
-            placeholder: 'Ingrese una cantidad de días'
-          }
-        },
-        {
-          key: 'Porcentaje con otra forma de pago (compra)',
-          type: 'input',
-          templateOptions:{
-            label: 'El ___% con otra forma de pago',
-            pattern: '\\d{1,3}'
-          }
-        },
-        {
-          key: 'Plazo de pago promedio a x días otra forma de pago (compra)',
-          type: 'input',
-          templateOptions:{
-            label: 'Plazo de pago promedio a __ días',
-            pattern: '\\d{1,3}',
-            placeholder: 'Ingrese una cantidad de días'
-          }
-        },
-        {
-          className: 'datos-pago-ventas',
-          template: '<div><h3>Forma de pago de las ventas</h3></div>',
-        },
-        {
-          key: 'Porcentaje efectivo (pago)',
-          type: 'input',
-          templateOptions:{
-            label: 'El ___% es en efectivo',
-            pattern: '\\d{1,3}'
-          }
-        },
-        {
-          key: 'Porcentaje crédito proveedores (pago)',
-          type: 'input',
-          templateOptions:{
-            label: 'El ___% es crédito de proveedores',
-            pattern: '\\d{1,3}'
-          }
-        },
-        {
-          key: 'Plazo de pago promedio a x días (pago)',
-          type: 'input',
-          templateOptions:{
-            label: 'Plazo de pago promedio a __ días',
-            pattern: '\\d{1,3}',
-            placeholder: 'Ingrese una cantidad de días'
-          }
-        },
-        {
-          key: 'Porcentaje con otra forma de pago (pago)',
-          type: 'input',
-          templateOptions:{
-            label: 'El ___% con otra forma de pago',
-            pattern: '\\d{1,3}'
-          }
-        },
-        {
-          key: 'Plazo de pago promedio a x días otra forma de pago (pago)',
-          type: 'input',
-          templateOptions:{
-            label: 'Plazo de pago promedio a __ días',
-            pattern: '\\d{1,3}',
-            placeholder: 'Ingrese una cantidad de días'
-          }
-        },
-      ]
-    }
-  },
-//--------------------------------------------------------------------------------------------------------
-  {
-    className: 'datos-inversion-realizada',
-    template: '<div><h2>Inversión realizada (Activo destinado al proyecto):</h2></div>',
-  },
-  {
-    key: 'Boton inversion',
-    type: 'no repeat',
-    templateOptions: {
-      addText: 'Insertar tabla de Inverisión',
-    },
-    fieldArray: {
-      fieldGroup: [
-  {
-    key: 'Inversión realizada',
-    type: 'repeat',
-    templateOptions: {
-      addText: 'Ingresar inversión',
-    },
-    fieldArray: {
-      fieldGroup: [
-        {
-          className: 'descripcion-inversion',
-          template: '<div><h3>Equipos, máquinas, herramientas, metria prima, insumos, movilidad y otros bienes propios que posee actualmente el microemprendimiento.</h3></div>',
-        },
-        {
-          key: 'Descripción',
-          type: 'input',
-          templateOptions:{
-            label: 'Descripción',
-            placeholder: 'Ingrese una descripción',
-            required: true,
-          }
-        },
-        {
-          key: 'Nuevos',
-          type: 'input',
-          templateOptions:{
-            label: 'Nuevos',
-            required: true,
-            placeholder: 'Ingrese una cantidad',
-            pattern: '\\d{1,10}'
-          }
-        },
-        {
-          key: 'Usados',
-          type: 'input',
-          templateOptions:{
-            label: 'Usados',
-            required: true,
-            placeholder: 'Ingrese una cantidad',
-            pattern: '\\d{1,10}'
-          }
-        },
-        {
-          key: 'Cantidad',
-          type: 'input',
-          templateOptions:{
-            label: 'Cantidad',
-            required: true,
-            placeholder: 'Ingrese una cantidad',
-            pattern: '\\d{1,10}'
-          }
-        },
-        {
-          key: 'Precio',
-          type: 'input',
-          templateOptions:{
-            label: 'Precio',
-            required: true,
-            placeholder: 'Ingrese un precio',
-            pattern: '\\d{1,25}',
-          }
-        },
-      ]
-    }
-  },
-  {
-    key: 'btn_calcular',
-    type: 'button',
-    templateOptions:{
-      text: 'Calcular',
-      onClick: ($event) => {
-        var sum_ingreso = 0
-        
-        var clase_contentedora: any = this.form.get('Boton inversion')
-        
-        var cont_valores = clase_contentedora.value
-        var arr_cont_valores = cont_valores[0]
-        console.log(arr_cont_valores)
-        var arr_ingresos: any = arr_cont_valores['Inversión realizada']
-        console.log(arr_ingresos)
-        
-        
-        for(var i = 0; i<arr_ingresos.length;i++){
-          var cantidad:number = +arr_ingresos[i]['Cantidad']
-          var precio:number = +arr_ingresos[i]['Precio']
-          sum_ingreso = sum_ingreso + (cantidad * precio)
-        }
-        
-        console.log(sum_ingreso)
-        var contenedor_campos = clase_contentedora.controls[0]
-        console.log(contenedor_campos)
-        contenedor_campos.get('Monto Total de la inversión realizada').setValue(sum_ingreso)
-      },
-    }
-  },
-  {
-    key: 'Monto Total de la inversión realizada',
-    type: 'input',
-    templateOptions:{
-      label: 'Monto Total de la inversión realizada',
-      disabled: true,
-      required: true
-    }
-  },
-]}},
-//--------------------------------------------------------------------------------------------------------
-  {
-    className: 'datos-deuda-emprendimiento',
-    template: '<div><h2>Deuda del emprendimiento (pasivo):</h2></div>',
-  },
-  {
-    key: 'Boton deuda del emprendimiento',
-    type: 'no repeat',
-    templateOptions: {
-      addText: 'Insertar tabla de Deuda',
-    },
-    fieldArray: {
-      fieldGroup: [
-  {
-    key: 'Deuda del emprendimiento',
-    type: 'repeat',
-    templateOptions: {
-      addText: 'Ingresar Deuda',
-    },
-    fieldArray: {
-      fieldGroup: [
-        {
-          className: 'descripcion-deuda',
-          template: '<div><h3>Detallar si posee actualmente deudas por adquisición de materiale, maquinarias, etc. destinadas al proyecto</h3></div>',
-        },
-        {
-          key: 'Descripción',
-          type: 'input',
-          templateOptions:{
-            label: 'Descripción',
-            placeholder: 'Ingrese una descripción',
-          }
-        },
-        {
-          key: 'Monto',
-          type: 'input',
-          templateOptions:{
-            label: 'Monto',
-            placeholder: 'Ingrese un monto'
-          }
-        },
-      ]
-    }
-  },
-  {
-    key: 'btn_calcular',
-    type: 'button',
-    templateOptions:{
-      text: 'Calcular',
-      onClick: ($event) => {
-        var sum_ingreso = 0
-        
-        var clase_contentedora: any = this.form.get('Boton deuda del emprendimiento')
-        
-        var cont_valores = clase_contentedora.value
-        var arr_cont_valores = cont_valores[0]
-        console.log(arr_cont_valores)
-        var arr_ingresos: any = arr_cont_valores['Deuda del emprendimiento']
-        console.log(arr_ingresos)
-        
-        
-        for(var i = 0; i<arr_ingresos.length;i++){
-          var monto:number = +arr_ingresos[i]['Monto']
-          sum_ingreso = sum_ingreso + monto
-        }
-        
-        console.log(sum_ingreso)
-        var contenedor_campos = clase_contentedora.controls[0]
-        console.log(contenedor_campos)
-        contenedor_campos.get('Monto Total de la deuda').setValue(sum_ingreso)
-      },
-    }
-  },
-  {
-    key: 'Monto Total de la deuda',
-    type: 'input',
-    templateOptions: {
-      label: 'Monto Total de la deuda',
-      disabled: true,
-      required: true
-    }
-  },
-]}},
-//--------------------------------------------------------------------------------------------------------
-  {
-    className: 'datos-necesidades-inversion',
-    template: '<div><h2>Necesidades de inversión:</h2></div>',
+    className: 'datos-necesidades-a-cubrir',
+    template: '<div><h2>Necesidad a cubrir con el micro préstamo:</h2></div>',
   },
   {
     key: 'Boton necesidades',
     type: 'no repeat',
     templateOptions: {
-      addText: 'Insertar tabla de Necesidades de Inversión',
-    },
-    fieldArray: {
-      fieldGroup: [
-  {
-    key: 'Necesidades de inversión',
-    type: 'repeat',
-    templateOptions: {
-      addText: 'Ingresar necesidad',
+      addText: 'Insertar campo de necesidades',
     },
     fieldArray: {
       fieldGroup: [
         {
-          className: 'descripcion-necesidad',
-          template: '<div><h3>Detallelos equipos, maquinarias, herramientas, materias primas e insumos a adquirir.</h3></div>',
+          className: 'datos-detalles',
+          template: '<div><h3>Deberá detallar cuales son los productos que desea adquirir y el precio estimado de mercado de los mismos.</h3></div>',
         },
         {
-          key: 'Descripción',
-          type: 'input',
-          templateOptions:{
-            label: 'Descripción',
-            placeholder: 'Ingrese una descripción',
-            required: true,
-          }
-        },
-        {
-          key: 'Nuevos',
-          type: 'input',
-          templateOptions:{
-            label: 'Nuevos',
-            required: true,
-            placeholder: 'Ingrese una cantidad',
-            pattern: '\\d{1,10}'
-          }
-        },
-        {
-          key: 'Usados',
-          type: 'input',
-          templateOptions:{
-            label: 'Usados',
-            required: true,
-            placeholder: 'Ingrese una cantidad',
-            pattern: '\\d{1,10}'
-          }
-        },
-        {
-          key: 'Cantidad',
-          type: 'input',
-          templateOptions:{
-            label: 'Cantidad',
-            required: true,
-            placeholder: 'Ingrese una cantidad',
-            pattern: '\\d{1,10}'
-          }
-        },
-        {
-          key: 'Precio',
-          type: 'input',
-          templateOptions:{
-            label: 'Precio',
-            required: true,
-            placeholder: 'Ingrese un precio',
-            pattern: '\\d{1,25}',
-          }
-        },
-      ]
-    }
-  },
-  {
-    key: 'btn_calcular',
-    type: 'button',
-    templateOptions:{
-      text: 'Calcular',
-      onClick: ($event) => {
-        var sum_ingreso = 0
-        
-        var clase_contentedora: any = this.form.get('Boton necesidades')
-        
-        var cont_valores = clase_contentedora.value
-        var arr_cont_valores = cont_valores[0]
-        console.log(arr_cont_valores)
-        var arr_ingresos: any = arr_cont_valores['Necesidades de inversión']
-        console.log(arr_ingresos)
-        
-        
-        for(var i = 0; i<arr_ingresos.length;i++){
-          var cantidad:number = +arr_ingresos[i]['Cantidad']
-          var precio:number = +arr_ingresos[i]['Precio']
-          sum_ingreso = sum_ingreso + (cantidad * precio)
-        }
-        
-        console.log(sum_ingreso)
-        var contenedor_campos = clase_contentedora.controls[0]
-        console.log(contenedor_campos)
-        contenedor_campos.get('Monto Total de la inversión a realizar').setValue(sum_ingreso)
-      },
-    }
-  },
-  {
-    key: 'Monto Total de la inversión a realizar',
-    type: 'input',
-    templateOptions:{
-      label: 'Monto Total de la inversión a realizar',
-      disabled: true,
-    }
-  },
-  {
-    key: 'A financiar con microprestamo',
-    type: 'input',
-    templateOptions: {
-      label: 'A financiar con micorprestamo',
-      placeholder: 'Ingrese un monto',
-      pattern: '\\d{1,25}',
-    }
-  },
-  {
-    key: 'Aportes del capital propio',
-    type: 'input',
-    templateOptions: {
-      label: 'Aportes del capital propio',
-      placeholder: 'Ingrese un monto',
-      pattern: '\\d{1,25}',
-    }
-  },
-  {
-    key: 'Otra fuente de financiamiento (indique cuál)',
-    type: 'input',
-    templateOptions: {
-      label: 'Otra fuente de financiamiento (indique cuál)',
-      placeholder: 'Ingrese un monto',
-      pattern: '\\d{1,25}',
-    }
-  },
-  {
-    key: '¿Cuál?',
-    type: 'input',
-    templateOptions: {
-      label: '¿Cuál?',
-      placeholder: 'Ingrese una fuente',
-    }
-  },
-]}},
-//--------------------------------------------------------------------------------------------------------
-  {
-    className: 'datos-precio-venta',
-    template: '<div><h2>Determinar el precio de venta de su producto o servicio principal</h2></div>',
-  },
-  {
-    key: 'Boton precio de venta',
-    type: 'no repeat',
-    templateOptions: {
-      addText: 'Insertar tabla de Precio de Venta',
-    },
-    fieldArray: {
-      fieldGroup: [
-  {
-    key: 'Unidades estimadas a vender mensualmente',
-    type: 'input',
-    templateOptions: {
-      label: 'Unidades estimadas a vender mensualmente',
-      placeholder: 'Ingrese una cantidad',
-      required: true,
-      pattern: '\\d{1,10}',
-    }
-  },
-  {
-    key: '¿Cuál es el producto?',
-    type: 'input',
-    templateOptions:{
-      label: '¿Cuál es el producto?',
-      required: true,
-      placeholder: 'Ingrese un producto'
-    }
-  },
- 
-  {
-    className: 'datos-costos-variables',
-    template: '<div><h3>Costos variables</h3></div>',
-  },
-  {
-    key: 'Costos variables',
-    type: 'repeat',
-    templateOptions: {
-      addText: 'Ingresar Costo',
-    },
-    fieldArray: {
-      fieldGroup: [
-        {
-          key: 'Detalle de materia prima',
-          type: 'input',
-          templateOptions:{
-            label: 'Detalle de materia prima',
-            placeholder: 'Ingrese un detalle',
-            required: true,
-          }
-        },
-        {
-          key: 'Pesos por unidad',
-          type: 'input',
-          templateOptions:{
-            label: 'Pesos por unidad',
-            placeholder: 'Ingrese un monto por unidad',
-            required: true,
-            pattern: '\\d{1,25}',
-          }
-        },
-      ]
-    }
-  },
-  {
-    className: 'costos-otros',
-    template: '<h3>Otros (por ejemplo embalaje)</h3>',
-  },
-  {
-    key: 'Detalle de materia prima',
-    type: 'input',
-    templateOptions:{
-      label: 'Detalle de materia prima',
-      placeholder: 'Ingrese un detalle',
-      required: true,
-    }
-  },
-  {
-    key: 'Pesos por unidad',
-    type: 'input',
-    templateOptions:{
-      label: 'Pesos por unidad',
-      placeholder: 'Ingrese un monto por unidad',
-      required: true,
-      pattern: '\\d{1,25}',
-    }
-  },
-
-  {
-    key: 'Costos fijos',
-    type: 'repeat',
-    templateOptions: {
-      addText: 'Ingresar Costo',
-    },
-    fieldArray: {
-      fieldGroup: [
-        {
-          key: 'Detalle: incluya luz, gas, impuestos, movilidad, couta crédito, etc, vinculados con el emprendimiento',
-          type: 'input',
-          templateOptions:{
-            label: 'Detalle: incluya luz, gas, impuestos, movilidad, couta crédito, etc., vinculados con el emprendimiento',
-            placeholder: 'Ingrese un detalle',
-            required: true,
-          }
-        },
-        {
-          key: 'Pesos por unidad',
-          type: 'input',
-          templateOptions:{
-            label: 'Pesos por unidad',
-            placeholder: 'Ingrese un monto por unidad',
-            required: true,
-            pattern: '\\d{1,25}',
-          }
-        },
-      ]
-    }
-  },
-  {
-    key: 'btn_calcular',
-    type: 'button',
-    templateOptions:{
-      text: 'Calcular',
-      onClick: ($event) => {
-        var sum_costos:number = 0
-
-        var clase_contentedora: any = this.form.get('Boton precio de venta')
-        
-        var cont_valores = clase_contentedora.value
-        var arr_cont_valores = cont_valores[0]
-        console.log(arr_cont_valores)
-        var arr_costos_variables: any = arr_cont_valores['Costos variables']
-        var arr_costos_fijos: any = arr_cont_valores['Costos fijos']
-
-        
-        for(var i = 0; i<arr_costos_variables.length;i++){
-
-          var precio_producto:number = +arr_costos_variables[i]['Pesos por unidad']
-          sum_costos = sum_costos + precio_producto
-        }
-        var costos_otros:number = +arr_cont_valores['Pesos por unidad']
-        console.log(costos_otros)
-
-        sum_costos = sum_costos + costos_otros
-        for(var i = 0; i<arr_costos_fijos.length;i++){
-
-          var precio_producto:number = +arr_costos_fijos[i]['Pesos por unidad']
-          sum_costos = sum_costos + precio_producto
-        }
-
-        var contenedor_campos = clase_contentedora.controls[0]
-        contenedor_campos.get('Total Costos Fijos y Variables').setValue(sum_costos)
-
-      },
-    }
-  },
-  {
-    key: 'Total Costos Fijos y Variables',
-    type: 'input',
-    templateOptions:{
-      label: 'Total Costos Fijos Fijos y Variables',
-      required: true,
-      disabled: true,
-    }
-  },
-]}},
-  
-//--------------------------------------------------------------------------------------------------------
-{
-  className: 'datos-cuadro-resultado-estimado-mensual',
-  template: '<div><h2>Cuadro de resultado estimado mensual</h2></div>',
-},
-{
-  key: 'Resultado estimado mensual',
-  type: 'no repeat',
-  templateOptions: {
-    addText: 'Cuadro de resultado mensual',
-  },
-  fieldArray: {
-    fieldGroup: [
-      {
-        className: 'datos-ventas-ingresos-mensuales',
-        template: '<div><h3>Ventas - Ingresos mensuales</h3></div>',
-      },
-      {
-        key: 'Ingresos mensuales',
-        type: 'repeat',
-        templateOptions: {
-          addText: 'Ingresar Ingreso mensual',
-        },
-        fieldArray: {
-          fieldGroup: [
-            {
-              key: 'Producto y/o servicio a vender',
-              type: 'input',
-              templateOptions: {
-                label: 'Producto y/o servicio a vender',
-                placeholder: 'Ingrese un producto y/o servicio a vender',
-                required: true,
-              }
-            },
-            {
-              key: 'Cantidad de unidades a vender por mes',
-              type: 'input',
-              templateOptions: {
-                label: 'Cantidad de unidades a vender por mes',
-                placeholder: 'Ingrese una cantidad',
-                required: true,
-                pattern: '\\d{1,10}',
-              }
-            },
-            {
-              key: 'Precio del producto',
-              type: 'input',
-              templateOptions: {
-                label: 'Precio del producto',
-                placeholder: 'Ingrese un precio',
-                required: true,
-                pattern: '\\d{1,10}',
-              }
-            },
-          ]
-        }
-      },
-      {
-        key: 'Suma total de ingresos mensuales (A)',
-        type: 'input',
-        defaultValue: 'Un valor',
-        templateOptions: {
-          label: 'Suma total de ingresos mensuales (A)',
-          disabled: true,
-        }
-      },
-      {
-        className: 'gastos-mensuales',
-        template: '<div><h3>Gastos mensuales</h3></div>',
-      },
-      {
-        key: 'Gastos mensuales',
-        type: 'repeat',
-        templateOptions: {
-          addText: 'Ingresar un gasto',
-        },
-        fieldArray: {
-          fieldGroup: [
-            {
-              key: 'Detalle los gastos y costos mensuales para generar y vender sus productos y servicios',
-              type: 'input',
-              templateOptions: {
-                label: 'Detalle los gastos y costos mensuales para generar y vender sus productos y servicios',
-                placeholder: 'Ingrese un detalle',
-                required: true,
-              }
-            },
-            {
-              key: 'Cantidad de unidades a vender por mes',
-              type: 'input',
-              templateOptions: {
-                label: 'Cantidad de unidades a vender por mes',
-                placeholder: 'Ingrese una cantidad',
-                required: true,
-                pattern: '\\d{1,10}',
-              }
-            },
-            {
-              key: 'Precio del producto',
-              type: 'input',
-              templateOptions: {
-                label: 'Precio del producto',
-                placeholder: 'Ingrese un precio',
-                required: true,
-                pattern: '\\d{1,10}',
-              }
-            },
-          ]
-        }
-      },
-      {
-        key: 'Suma total de los gastos mensuales (B)',
-        type: 'input',
-        defaultValue: 'Un valor',
-        templateOptions: {
-          label: 'Suma total de gastos mensuales (B)',
-          disabled: true,
-        }
-      },
-      {
-        className: 'ganancia-estimada',
-        template: '<div><h3>Ganancia estimada mensual (a - b) Ingresos (a) menos Gastos (b) es igual a Ganancia Estimada</h3></div>',
-      },
-      {
-        key: 'btn_calcular',
-        type: 'button',
-        templateOptions:{
-          text: 'Calcular',
-          onClick: ($event) => {
-            var sum_ingreso = 0
-            var sum_gastos = 0
-            var clase_contentedora: any = this.form.get('Resultado estimado mensual')
-            
-            var cont_valores = clase_contentedora.value
-            var arr_cont_valores = cont_valores[0]
-            console.log(arr_cont_valores)
-            var arr_ingresos: any = arr_cont_valores['Ingresos mensuales']
-            var arr_gastos: any = arr_cont_valores['Gastos mensuales']
-            console.log(arr_gastos)
-            console.log(arr_ingresos)
-            
-            for(var i = 0; i<arr_ingresos.length;i++){
-              var cantidad:number = +arr_ingresos[i]['Cantidad de unidades a vender por mes']
-              var precio_producto:number = +arr_ingresos[i]['Precio del producto']
-              sum_ingreso = sum_ingreso + (cantidad * precio_producto)
-            }
-            for(var i = 0; i<arr_gastos.length;i++){
-              var cantidad:number = +arr_gastos[i]['Cantidad de unidades a vender por mes']
-              var precio_producto:number = +arr_gastos[i]['Precio del producto']
-              sum_gastos = sum_gastos + (cantidad * precio_producto)
-            }
-            console.log(sum_gastos)
-            console.log(sum_ingreso)
-            var contenedor_campos = clase_contentedora.controls[0]
-            contenedor_campos.get('Suma total de ingresos mensuales (A)').setValue(sum_ingreso)
-            contenedor_campos.get('Suma total de los gastos mensuales (B)').setValue(sum_gastos)
-            contenedor_campos.get('Total ganancia estimada (A-B)').setValue(sum_ingreso - sum_gastos);
+          key: 'Necesidades',
+          type: 'repeat',
+          templateOptions: {
+            addText: 'Agregar Necesidad'
           },
-        }
-      },
-      {
-        key: 'Total ganancia estimada (A-B)',
-        type: 'input',
-        templateOptions:{
-          label: 'Total ganancia estimada (A-B)',
-          required: true,
-          disabled: true,
-        }
-      },
-    ]
-  }
-},
+          fieldArray:{
+            fieldGroup: [
+              {
+                key: 'Descripción',
+                type: 'input',
+                templateOptions:{
+                  label: 'Descripción',
+                  placeholder: 'Ingrese una descripción',
+                  required: true,
+                }
+              },
+              {
+                key: 'Precio',
+                type: 'input',
+                templateOptions: {
+                  label: 'Precio',
+                  placeholder: 'Ingrese un precio',
+                  pattern: '\\d{1,10}',
+                  required: true
+                }
+              },
+            ]
+          }
+        },
+        {
+          key: 'btn_calcular',
+          type: 'button',
+          templateOptions:{
+            text: 'Calcular Total',
+            onClick: ($event) => {
+              var sum_necesidades = 0
+              
+              var clase_contentedora: any = this.form.get('Boton necesidades')
+              
+              var cont_valores = clase_contentedora.value
+              var arr_cont_valores = cont_valores[0]
+              console.log(arr_cont_valores)
+              var arr_ingresos: any = arr_cont_valores['Necesidades']
+              console.log(arr_ingresos)
+              
+              
+              for(var i = 0; i<arr_ingresos.length;i++){
+        
+                var precio:number = +arr_ingresos[i]['Precio']
+                sum_necesidades = sum_necesidades + precio
+              }
+              
+              console.log(sum_necesidades)
+              var contenedor_campos = clase_contentedora.controls[0]
+              console.log(contenedor_campos)
+              contenedor_campos.get('Monto Total de las necesidades').setValue(sum_necesidades)
+            },
+          }
+        },
+        {
+          className: 'datos-monto',
+          template: '<p>',
+        },
+        {
+          key: 'Monto Total de las necesidades',
+          type: 'input',
+          defaultValue: '0',
+          templateOptions:{
+            label: 'Monto Total de las necesidades',
+            disabled: true,
+          }
+        },
+      ]
+    }
+  },
+//--------------------------------------------------------------------------------------------------------
+  {
+    className: 'datos-emprendimiento',
+    template: '<div><h2>Informe sobre el emprendimiento</h2></div>',
+  },
+  {
+    key: 'Datos informe sobre el emprendimiento',
+    type: 'no repeat',
+    templateOptions:{
+      addText: 'Agregar informe sobre el emprendimiento'
+    },
+    fieldArray:{
+      fieldGroup:[
+        {
+          template: '<div>En este campo deberá detallarnos sobre el proyecto que desea realizar o mejorar (si ya está en marcha)  con el dinero de nuestro financiamiento. Entendiendo que deba responder las siguientes preguntas generales y a modo de orientativo:</div>'
+        },
+        {
+          template: '<ul><li>Que productos o servicios vende o venderá.</li><li>Cuál es el proceso de producción del bien o servicio, dónde lo va realizar, como, con quien, en que consiste, y el tiempo que le insumirá.</li><li>Cuántas unidades vende o proyecta vender, a qué precio; detalle la forma en que calcula el precio del producto. Efectúe un breve resumen de ingresos y gastos estimados del proyecto en forma mensual</li><li>Donde cree vender su producto, actividades pensadas para lograrlo, etc.</li><li>Cuenta con elementos para realizar el proyecto (maquinaria, materia prima, etc).</li><li>Que es lo que desea comprar con el micropréstamo.</li></ul>'
+        },
+        {
+          template: '<p><h3>PARA MAYOR FACILIDAD, LOS DATOS NUMÉRICOS DEL PROYECTO PODRÁ REALIZARLO EN UNA HOJA Y CARGARLOS COMO UNA FOTO CONJUNTAMENTE CON EL RESTO DE INFORMACIÓN A SUMINISTRARNOS</h3>'
+        },
+        {
+          template: '<h3>TENGA EN CUENTA QUE LO BRINDADO POR UD. AQUÍ NOS SERVIRÁ PARA ANALIZAR Y  LUEGO APROBAR  EL MICROPRESTAMO, SI CORRESPONDIERE.</h3>'
+        },
+        {
+          key: 'Informe del emprendimiento',
+          type: 'textarea',
+          templateOptions: {
+            label: 'Informe del emprendimiento',
+            placeholder: 'Ingrese un informe del emprendimiento',
+            rows: 15,
+          },
+        },
+      ]
+    }
+  },
 //--------------------------------------------------------------------------------------------------------
     {
       className: 'datos-garante',
@@ -2177,6 +1179,21 @@ export class AppComponent {
     },
     fieldArray: {
       fieldGroup: [
+        {
+          key: 'Tipo de garante',
+          type: 'select',
+          templateOptions: {
+            label: 'Tipo de garante',
+            options:[
+              {value: 'Presento garante', label: 'Presento garante'},
+              {value: 'Soy autogarante', label: 'Soy autogarante'}
+            ]
+          }
+        },
+        {
+          className: 'info-garante',
+          template: '<div><h3>En caso de no ser autogarante rellene los espacios de abajo</h3></div>',
+        },
 
     {
       key: 'Apellido',
@@ -2184,7 +1201,6 @@ export class AppComponent {
       templateOptions: {
         label: 'Apellido',
         placeholder: 'Ingrese su apellido',
-        required: true,
       },
     },
     {
@@ -2193,7 +1209,6 @@ export class AppComponent {
       templateOptions: {
         label: 'Nombres',
         placeholder: 'Ingrese sus nombres',
-        required: true,
       },
     },
     {
@@ -2203,7 +1218,6 @@ export class AppComponent {
         pattern: "\\d{7,8}",
         label: 'DNI',
         placeholder: 'Su Dni',
-        required: true,
       },
     },
     {
@@ -2212,7 +1226,6 @@ export class AppComponent {
       templateOptions: {
         label: 'Calle',
         placeholder: 'Direccion',
-        required: true,
       },
     },
     {
@@ -2222,7 +1235,6 @@ export class AppComponent {
         pattern: "\\d{1,5}",
         label: 'Número',
         placeholder: 'Número',
-        required: true,
       },
     },
     {
@@ -2282,7 +1294,6 @@ export class AppComponent {
         label: 'Departamento',
         placeholder: 'Placeholder',
         description: 'Departamento',
-        required: true,
         options: [
             { value: 'CAPITAL', label:'CAPITAL'  },
             { value: 'CALAMUCHITA', label:'CALAMUCHITA'  },
@@ -2319,7 +1330,6 @@ export class AppComponent {
       templateOptions: {
         label: 'Localidad',
         placeholder: 'Localidad',
-        required: true,
       },
     },
     {
@@ -2328,7 +1338,6 @@ export class AppComponent {
       templateOptions: {
         label: 'C.P.',
         placeholder: 'Ingrese C.P.',
-        required: true,
       },
     },
     {
@@ -2338,7 +1347,6 @@ export class AppComponent {
         pattern: "\\d{1,25}",
         label: 'Teléfono',
         placeholder: 'Ingrese teléfono de contacto',
-        required: true,
       },
     },
     {
@@ -2363,7 +1371,6 @@ export class AppComponent {
         type: 'date',
         label: 'Fecha de nacimiento',
         placeholder: 'Fecha de nacimiento dd/mm/aaaa',
-        required: true,
       },
     },
     {
