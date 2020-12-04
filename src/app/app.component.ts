@@ -469,14 +469,14 @@ export class AppComponent {
 
   {
     className: 'datos-empresa',
-    template: '<div><h2>Datos de la empresa:</h2></div>',
+    template: '<div><h2>Datos del emprendimiento:</h2></div>',
   },
 
   {
     key: 'Empresa',
     type: 'no repeat',
     templateOptions: {
-      addText: 'Ingresar datos de la empresa',
+      addText: 'Ingresar datos del emprendimiento',
     },
     fieldArray: {
       fieldGroup: [
@@ -1143,16 +1143,16 @@ export class AppComponent {
     fieldArray:{
       fieldGroup:[
         {
-          template: '<div>En este campo deberá detallarnos sobre el proyecto que desea realizar o mejorar (si ya está en marcha)  con el dinero de nuestro financiamiento. Entendiendo que deba responder las siguientes preguntas generales y a modo de orientativo:</div>'
+          template: '<div>En este campo deberá detallarnos sobre el proyecto que desea realizar o mejorar (si ya está en marcha) con el dinero de nuestro financiamiento. Entendiendo que deba responder las siguientes preguntas generales y a modo orientativo:</div>'
         },
         {
-          template: '<ul><li>Que productos o servicios vende o venderá.</li><li>Cuál es el proceso de producción del bien o servicio, dónde lo va realizar, como, con quien, en que consiste, y el tiempo que le insumirá.</li><li>Cuántas unidades vende o proyecta vender, a qué precio; detalle la forma en que calcula el precio del producto. Efectúe un breve resumen de ingresos y gastos estimados del proyecto en forma mensual</li><li>Donde cree vender su producto, actividades pensadas para lograrlo, etc.</li><li>Cuenta con elementos para realizar el proyecto (maquinaria, materia prima, etc).</li><li>Que es lo que desea comprar con el micropréstamo.</li></ul>'
+          template: '<ul><li>Que productos o servicios vende o venderá.</li><li>Cuál es el proceso de producción del bien o servicio, dónde lo va realizar, como, con quien, en que consiste, y el tiempo que le insumirá.</li><li>Cuántas unidades vende o proyecta vender, a qué precio; detalle la forma en que calcula el precio del producto?. Efectúe un breve resumen de ingresos y gastos estimados del proyecto en forma mensual</li><li>¿Donde cree vender su producto, actividades pensadas para lograrlo, etc?.</li><li>¿Cuenta con elementos para realizar el proyecto (maquinaria, materia prima, etc)?.</li><li>¿Que es lo que desea comprar con el micropréstamo?. ¿Como cree que le ayudará en el emprendimiento?.</li></ul>'
         },
         {
-          template: '<p><h3>PARA MAYOR FACILIDAD, LOS DATOS NUMÉRICOS DEL PROYECTO PODRÁ REALIZARLO EN UNA HOJA Y CARGARLOS COMO UNA FOTO CONJUNTAMENTE CON EL RESTO DE INFORMACIÓN A SUMINISTRARNOS</h3>'
+          template: '<p><h2>PARA MAYOR FACILIDAD, LOS DATOS NUMÉRICOS DEL PROYECTO PODRÁ REALIZARLO EN UNA HOJA Y CARGARLOS COMO UNA FOTO CONJUNTAMENTE CON EL RESTO DE INFORMACIÓN A SUMINISTRARNOS</h2>'
         },
         {
-          template: '<h3>TENGA EN CUENTA QUE LO BRINDADO POR UD. AQUÍ NOS SERVIRÁ PARA ANALIZAR Y  LUEGO APROBAR  EL MICROPRESTAMO, SI CORRESPONDIERE.</h3>'
+          template: '<h2>TENGA EN CUENTA QUE LO BRINDADO POR UD. AQUÍ NOS SERVIRÁ PARA ANALIZAR Y LUEGO APROBAR EL MICROPRESTAMO, SI CORRESPONDIERE.</h2>'
         },
         {
           key: 'Informe del emprendimiento',
