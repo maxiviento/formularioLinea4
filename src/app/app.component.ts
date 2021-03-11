@@ -1424,7 +1424,7 @@ export class AppComponent {
   {
     key: 'monto solicitado',
     type: 'input',
-    defaultValue: '$12000',
+    defaultValue: '$27000',
     templateOptions: {
       //pattern: "\\d{0,20}",
       label: 'Monto solicitado',
@@ -1435,7 +1435,7 @@ export class AppComponent {
   {
     key: 'cantidad de cuotas',
     type: 'input',
-    defaultValue: '20',
+    defaultValue: '30',
     templateOptions: {
       label: 'Cantidad de cuotas',
       disabled: true,
@@ -1445,7 +1445,7 @@ export class AppComponent {
   {
     key: 'Monto estimado de cuota',
     type: 'input',
-    defaultValue: '$600',
+    defaultValue: '$900',
     templateOptions: {
       //pattern: "\\d{0,20}",
       label: 'Monto estimado de cuota',
