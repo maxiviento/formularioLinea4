@@ -78,6 +78,8 @@ export class AppComponent {
             placeholder: 'Su Dni',
             required: true,
             pattern: '\\d{7,8}',
+            maxLength: 8,
+            minLength: 7
           },
         },
         {
@@ -88,6 +90,8 @@ export class AppComponent {
             placeholder: 'Su CUIL',
             required: true,
             pattern: '\\d{11}',
+            maxLength: 11,
+            minLength: 11
           },
         },
         {
@@ -206,6 +210,8 @@ export class AppComponent {
             placeholder: 'Número',
             required: true,
             pattern: "\\d{1,5}",
+            maxLength: 5,
+            minLength: 1
           },
         },
         {
@@ -223,6 +229,8 @@ export class AppComponent {
             label: 'Piso',
             placeholder: 'Piso',
             pattern: "\\d{1,2}",
+            maxLength: 2,
+            minLength: 1
           },
         },
         {
@@ -302,6 +310,8 @@ export class AppComponent {
           type: 'input',
           templateOptions: {
             pattern: "\\d{1,10}",
+            maxLength: 10,
+            minLength: 1,
             label: 'C.P.',
             placeholder: 'CP',
             required: true,
@@ -328,6 +338,8 @@ export class AppComponent {
             placeholder: 'Ingrese teléfono de contacto',
             required: true,
             pattern: "\\d{1,25}",
+            maxLength: 25,
+            minLength: 1
           },
         },
         {
@@ -335,6 +347,8 @@ export class AppComponent {
           type: 'input',
           templateOptions: {
             pattern: "\\d{1,25}",
+            maxLength: 25,
+            minLength: 1,
             label: 'Teléfono alternativo',
             placeholder: 'Ingrese teléfono alternativo',
           },
@@ -344,8 +358,9 @@ export class AppComponent {
           template: '<div><h2>Datos laborales:</h2></div>',
         },
         {
-          key: '¿Trabaja actualmente?',
+          key: 'Trabaja',
           type: 'select',
+          defaultValue: 'No',
           templateOptions: {
             label: '¿Trabaja actualmente?',
             options: [
@@ -353,6 +368,7 @@ export class AppComponent {
               { value: 'No', label: 'No' },
             ],
           },
+          
         },
         {
           key: 'Condición laboral',
@@ -370,6 +386,10 @@ export class AppComponent {
               { value: "benef de otros prog sociales", label: 'Beneficiario de otros Programas Sociales'  },
             ],
           },
+          expressionProperties:{
+            hide: 'model.Trabaja == "No"',
+            show: 'model.Trabaja == "Si"',
+          } 
         },
         {
           key: 'Actividad que realiza',
@@ -378,6 +398,10 @@ export class AppComponent {
             label: 'Actividad que realiza',
             placeholder: 'Ingrese actividad que realiza',
           },
+          expressionProperties:{
+            hide: 'model.Trabaja == "No"',
+            show: 'model.Trabaja == "Si"',
+          } 
         },
         {
           key: 'Profesión/Oficio',
@@ -386,6 +410,10 @@ export class AppComponent {
             label: 'Profesión/Oficio',
             placeholder: 'Una profesión u oficio.',
           },
+          expressionProperties:{
+            hide: 'model.Trabaja == "No"',
+            show: 'model.Trabaja == "Si"',
+          } 
         },
         {
           className: 'datos-patrimonio',
@@ -410,6 +438,7 @@ export class AppComponent {
           templateOptions:{
             label: '¿Qué valor estima que tiene?',
             pattern: "\\d{1,25}",
+            maxLength: 25,
             placeholder: 'Ingrese un monto',
           }
         },
@@ -417,7 +446,7 @@ export class AppComponent {
           key: '¿Dispone de algún vehiculo?',
           type: 'select',
           templateOptions:{
-            label: '¿Dispone de alguna casa o inmueble?',
+            label: '¿Dispone de algún vehiculo?',
             required: true,
             options:[
               {value: 'Si', label: 'Si'},
@@ -431,6 +460,7 @@ export class AppComponent {
           templateOptions:{
             label: '¿Cuántos?',
             pattern: "\\d{1,3}",
+            maxLength: 3,
             placeholder: 'Ingrese un valor',
           }
         },
@@ -449,6 +479,7 @@ export class AppComponent {
           templateOptions:{
             label: 'Estime su valor',
             pattern: "\\d{1,25}",
+            maxLength: 25,
             placeholder: 'Ingrese un monto',
           }
         },
@@ -458,6 +489,7 @@ export class AppComponent {
           templateOptions:{
             label: 'Total',
             pattern: "\\d{1,25}",
+            maxLength: 25,
             placeholder: 'Ingrese un monto',
           }
         },
@@ -497,6 +529,7 @@ export class AppComponent {
             placeholder: 'Número',
             required: true,
             pattern: "\\d{1,5}",
+            maxLength: 5,
           },
         },
         {
@@ -514,6 +547,7 @@ export class AppComponent {
             label: 'Piso',
             placeholder: 'Piso',
             pattern: "\\d{1,2}",
+            maxLength: 2,
           },
         },
         {
@@ -593,6 +627,7 @@ export class AppComponent {
           type: 'input',
           templateOptions: {
             pattern: "\\d{1,10}",
+            maxLength: 10,
             label: 'C.P.',
             placeholder: 'CP',
             required: true,
@@ -606,6 +641,7 @@ export class AppComponent {
             placeholder: 'Ingrese teléfono de contacto',
             required: true,
             pattern: "\\d{1,25}",
+            maxLength: 25,
           },
         },
         {
@@ -675,15 +711,6 @@ export class AppComponent {
             required: true,
             type: 'date',
             label: 'Proyecto activo desde/a partir de',
-          }
-        },
-        {
-          key: 'Actividad del microemprendimiento',
-          type: 'input',
-          templateOptions: {
-            label: '¿Cuál es la actividad del microemprendimiento?',
-            placeholder: 'Ingrese una actividad',
-            required: true,
           }
         },
         {
@@ -817,6 +844,8 @@ export class AppComponent {
             type: 'input',
             templateOptions: {
               pattern: "\\d{7,8}",
+              maxLength: 8,
+              minLength: 7,
               label: 'DNI',
               placeholder: 'Su Dni',
             },
@@ -936,13 +965,14 @@ export class AppComponent {
             },
           },
           {
-            key: '¿Trabaja?',
+            key: 'Trabaja',
             type: 'select',
+            defaultValue: 'No',
             templateOptions: {
               label: '¿Trabaja?',
               options: [
-                { value: "no", label: 'No'  },
-                { value: "si", label: 'Si'  },
+                { value: "No", label: 'No'  },
+                { value: "Si", label: 'Si'  },
               ],
             },
           },
@@ -962,6 +992,10 @@ export class AppComponent {
                 { value: "benef de otros prog sociales", label: 'Beneficiario de otros Programas Sociales'  },
               ],
             },
+              expressionProperties:{
+                hide: 'model.Trabaja == "No"',
+                show: 'model.Trabaja == "Si"',
+              } 
           },
           {
             key: 'Edad',
@@ -971,6 +1005,7 @@ export class AppComponent {
               placeholder: 'Edad',
               minLength: 1,
               maxLength: 3,
+              pattern: '\\d{1,3}'
             },
           },
           {
@@ -1077,6 +1112,7 @@ export class AppComponent {
                   label: 'Precio',
                   placeholder: 'Ingrese un precio',
                   pattern: '\\d{1,10}',
+                  maxLength: 10,
                   required: true
                 }
               },
@@ -1160,8 +1196,17 @@ export class AppComponent {
           templateOptions: {
             label: 'Informe del emprendimiento',
             placeholder: 'Ingrese un informe del emprendimiento',
-            rows: 15,
+            description: '',
+            rows: 10,
           },
+          expressionProperties: {
+            'templateOptions.focus': 'formState.awesomeIsForced',
+            'templateOptions.description': function(viewValue, modelValue, scope) {
+              if (scope.formState.awesomeIsForced) {
+                return 'And look! This field magically got focus!';
+              }
+            }
+          }
         },
       ]
     }
@@ -1218,6 +1263,8 @@ export class AppComponent {
         pattern: "\\d{7,8}",
         label: 'DNI',
         placeholder: 'Su Dni',
+        maxLength: 8,
+        minLength: 7
       },
     },
     {
@@ -1233,6 +1280,7 @@ export class AppComponent {
       type: 'input',
       templateOptions: {
         pattern: "\\d{1,5}",
+        maxLength: 5,
         label: 'Número',
         placeholder: 'Número',
       },
@@ -1250,6 +1298,7 @@ export class AppComponent {
       type: 'input',
       templateOptions: {
         pattern: "\\d{1,2}",
+        maxLength: 2,
         label: 'Piso',
         placeholder: 'Piso',
       },
@@ -1345,6 +1394,7 @@ export class AppComponent {
       type: 'input',
       templateOptions: {
         pattern: "\\d{1,25}",
+        maxLength: 25,
         label: 'Teléfono',
         placeholder: 'Ingrese teléfono de contacto',
       },
@@ -1380,6 +1430,7 @@ export class AppComponent {
         label: 'Edad',
         placeholder: 'Edad',
         pattern: '\\d{1,3}',
+        maxLength: 3
       },
     },
     {
@@ -1390,6 +1441,8 @@ export class AppComponent {
         placeholder: 'Su CUIL',
         required: true,
         pattern: '\\d{11}',
+        maxLength: 11,
+        minLength: 11
       },
     },
     {
@@ -1458,9 +1511,8 @@ export class AppComponent {
 
   
 
-  createPdf() {
-
-    if (this.form.invalid) {
+createPdf() {
+    if (this.form.valid) {
       let modelo = Object.entries(this.model);
       //
       var doc = new jsPDF('p', 'mm', 'a4');
@@ -1566,7 +1618,7 @@ export class AppComponent {
     let nombreArchivo = '00000000000';
     nombreArchivo = this.model['Solicitante'][0]['CUIL'];
       doc.output('dataurlnewwindow');
-      doc.save('solicitudCreditoL2' + nombreArchivo + '.pdf');
+      doc.save('solicitudCreditoL4' + nombreArchivo + '.pdf');
 
 
     } else (error) => {
