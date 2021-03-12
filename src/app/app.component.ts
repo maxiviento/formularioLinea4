@@ -1201,11 +1201,6 @@ export class AppComponent {
           },
           expressionProperties: {
             'templateOptions.focus': 'formState.awesomeIsForced',
-            'templateOptions.description': function(viewValue, modelValue, scope) {
-              if (scope.formState.awesomeIsForced) {
-                return 'And look! This field magically got focus!';
-              }
-            }
           }
         },
       ]
