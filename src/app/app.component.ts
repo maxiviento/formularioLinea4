@@ -1042,19 +1042,14 @@ export class AppComponent {
           
           var cont_valores = clase_contentedora.value
           var arr_cont_valores = cont_valores[0]
-          console.log(arr_cont_valores)
           var arr_ingresos: any = arr_cont_valores['Grupo Conviviente']
-          console.log(arr_ingresos)
           
           
           for(var i = 0; i<arr_ingresos.length;i++){
             var ingresos:number = +arr_ingresos[i]['Ingresos mensuales']
             sum_ingreso = sum_ingreso + ingresos
           }
-          
-          console.log(sum_ingreso)
           var contenedor_campos = clase_contentedora.controls[0]
-          console.log(contenedor_campos)
           contenedor_campos.get('Total ingresos familiares').setValue(sum_ingreso)
         },
       }
@@ -1131,9 +1126,7 @@ export class AppComponent {
               
               var cont_valores = clase_contentedora.value
               var arr_cont_valores = cont_valores[0]
-              console.log(arr_cont_valores)
               var arr_ingresos: any = arr_cont_valores['Necesidades']
-              console.log(arr_ingresos)
               
               
               for(var i = 0; i<arr_ingresos.length;i++){
@@ -1142,9 +1135,7 @@ export class AppComponent {
                 sum_necesidades = sum_necesidades + precio
               }
               
-              console.log(sum_necesidades)
               var contenedor_campos = clase_contentedora.controls[0]
-              console.log(contenedor_campos)
               contenedor_campos.get('Monto Total de las necesidades').setValue(sum_necesidades)
             },
           }
@@ -1523,9 +1514,14 @@ createPdf() {
       let i = 0; //
       let ll = 90;
       //var arr:JSON[];
+      //console.log(this.form)
 
       for (let seccion of modelo) {
-
+        
+        if(Array.isArray(seccion[1]) != true){
+          seccion[1] = [[seccion[1]]]
+        }
+        //console.log(seccion)
         let arr: any = seccion[1];
         if (y > 240 ) {
           doc.addPage();
@@ -1540,15 +1536,16 @@ createPdf() {
         doc.setTextColor(45);
         doc.text(seccion[0], x, m + y); //nombre seccion
         doc.line(x, m + y + 1, x + 180, m + y + 1);
-
+        //console.log(arr)
         for (var j = 0; j < arr.length; j++) {
 
-          //console.log(reg);
           var res = [];
           var z = 0;
+
           for (var clave in arr[j]) {
             i++;
             res.push([clave, arr[j][clave]]);
+            
             var registro: String[] = [clave, 'algo quee no se paso a string'];
             try {
               registro = res[z]; //paso los valores a string
@@ -1564,20 +1561,17 @@ createPdf() {
             var text_arr_aux = new Array
             text_arr_aux = []
             text_arr_aux = texto.split("",texto.length)
-            console.log(texto)
-            console.log(text_arr_aux)
             var text_arr = new Array
             text_arr = []
             var texto_aux = ""
             for(var jj = 0; jj < text_arr_aux.length; jj++){
               texto_aux = texto_aux + text_arr_aux[jj]
-              if(jj%115==0 && jj != 0){
+              if(jj%90==0 && jj != 0){
                 text_arr.push(texto_aux)
                 texto_aux = ""
               }
             }
             text_arr.push(texto_aux)
-            console.log(texto_aux)
             
             
             if (texto.length > 40) {x = 15; y = y + 12; i++; ll=180}
@@ -1596,7 +1590,14 @@ createPdf() {
             doc.setDrawColor(100);
             for (var ia = 0; ia < text_arr.length; ia++) {                
               doc.text(text_arr[ia], x, m + y); //valor
-              y = y + 5             
+              if (y > 240) {
+                doc.addPage();
+                doc.addImage(img, 'jpg', 0, 0);
+                m = 30;
+                y = 5;
+                x = 15;
+              }             
+              y = y + 5
             }
             y = y - 5
             
