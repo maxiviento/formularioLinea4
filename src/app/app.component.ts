@@ -368,7 +368,6 @@ export class AppComponent {
               { value: 'No', label: 'No' },
             ],
           },
-          
         },
         {
           key: 'Condición laboral',
@@ -465,10 +464,10 @@ export class AppComponent {
           }
         },
         {
-          key: '¿Modelos?',
+          key: 'Años de fabricación',
           type: 'input',
           templateOptions:{
-            label: '¿Modelos?',
+            label: 'Años de fabricación',
             placeholder: 'Ingrese un valor',
           }
         },
@@ -513,13 +512,28 @@ export class AppComponent {
     fieldArray: {
       fieldGroup: [
         {
+          key: 'Misma_Direccion',
+          type: 'select',
+          defaultValue: 'Si',
+          templateOptions: {
+            label: '¿Es la misma dirección en la que reside?',
+            options: [
+              { value: 'Si', label: 'Si' },
+              { value: 'No', label: 'No' },
+            ],
+          },
+        },
+        {
           key: 'Calle',
           type: 'input',
           templateOptions: {
             label: 'Calle',
             placeholder: 'Direccion',
-            required: true,
           },
+          expressionProperties:{
+            hide: 'model.Misma_Direccion == "Si"',
+            show: 'model.Misma_Direccion == "No"',
+          } 
         },
         {
           key: 'Número',
@@ -527,10 +541,13 @@ export class AppComponent {
           templateOptions: {
             label: 'Número',
             placeholder: 'Número',
-            required: true,
             pattern: "\\d{1,5}",
             maxLength: 5,
           },
+          expressionProperties:{
+            hide: 'model.Misma_Direccion == "Si"',
+            show: 'model.Misma_Direccion == "No"',
+          }
         },
         {
           key: 'Torre',
@@ -539,6 +556,10 @@ export class AppComponent {
             label: 'Torre',
             placeholder: 'Torre',
           },
+          expressionProperties:{
+            hide: 'model.Misma_Direccion == "Si"',
+            show: 'model.Misma_Direccion == "No"',
+          }
         },
         {
           key: 'Piso',
@@ -549,6 +570,10 @@ export class AppComponent {
             pattern: "\\d{1,2}",
             maxLength: 2,
           },
+          expressionProperties:{
+            hide: 'model.Misma_Direccion == "Si"',
+            show: 'model.Misma_Direccion == "No"',
+          }
         },
         {
           key: 'Depto',
@@ -557,6 +582,10 @@ export class AppComponent {
             label: 'Depto',
             placeholder: 'Depto',
           },
+          expressionProperties:{
+            hide: 'model.Misma_Direccion == "Si"',
+            show: 'model.Misma_Direccion == "No"',
+          }
         },
         {
           key: 'Manzana',
@@ -565,6 +594,10 @@ export class AppComponent {
             label: 'Manzana',
             placeholder: 'Manzana',
           },
+          expressionProperties:{
+            hide: 'model.Misma_Direccion == "Si"',
+            show: 'model.Misma_Direccion == "No"',
+          }
         },
         {
           key: 'Barrio',
@@ -572,8 +605,11 @@ export class AppComponent {
           templateOptions: {
             label: 'Barrio',
             placeholder: 'Barrio',
-            required: true,
           },
+          expressionProperties:{
+            hide: 'model.Misma_Direccion == "Si"',
+            show: 'model.Misma_Direccion == "No"',
+          }
         },
         {
           key: 'Departamento',
@@ -582,7 +618,6 @@ export class AppComponent {
             label: 'Departamento',
             placeholder: 'Placeholder',
             description: 'Departamento',
-            required: true,
             options: [
               { value: 'CAPITAL', label:'CAPITAL'  },
               { value: 'CALAMUCHITA', label:'CALAMUCHITA'  },
@@ -612,6 +647,10 @@ export class AppComponent {
               { value: 'UNION', label:'UNION'  },
             ],
           },
+          expressionProperties:{
+            hide: 'model.Misma_Direccion == "Si"',
+            show: 'model.Misma_Direccion == "No"',
+          }
         },
         {
           key: 'Localidad',
@@ -619,8 +658,11 @@ export class AppComponent {
           templateOptions: {
             label: 'Localidad',
             placeholder: 'Localidad',
-            required: true,
           },
+          expressionProperties:{
+            hide: 'model.Misma_Direccion == "Si"',
+            show: 'model.Misma_Direccion == "No"',
+          }
         },
         {
           key: 'Código Postal',
@@ -630,8 +672,11 @@ export class AppComponent {
             maxLength: 10,
             label: 'C.P.',
             placeholder: 'CP',
-            required: true,
           },
+          expressionProperties:{
+            hide: 'model.Misma_Direccion == "Si"',
+            show: 'model.Misma_Direccion == "No"',
+          }
         },
         {
           key: 'Teléfono',
@@ -770,8 +815,9 @@ export class AppComponent {
           }
         },
         {
-          key: '¿Pidió alguna vez un crédito para un microemprendimiento?',
+          key: 'pidio_alguna_vez_credito',
           type: 'select',
+          defaultValue: 'No',
           templateOptions: {
             required: true,
             label: '¿Pidió alguna vez un crédito para un microemprendimiento?',
@@ -790,6 +836,10 @@ export class AppComponent {
               {value: 'Si', label: 'Si'},
               {value: 'No', label: 'No'},
             ]
+          },
+          expressionProperties:{
+            hide: 'model.pidio_alguna_vez_credito == "No"',
+            show: 'model.pidio_alguna_vez_credito == "Si"',
           }
         },
         {
@@ -797,6 +847,10 @@ export class AppComponent {
           type: 'input',
           templateOptions: {
             label: '¿En que situación lo solicitó?'
+          },
+          expressionProperties:{
+            hide: 'model.pidio_alguna_vez_credito == "No"',
+            show: 'model.pidio_alguna_vez_credito == "Si"',
           }
         }
       ]
