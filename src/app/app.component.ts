@@ -31,6 +31,7 @@ export class AppComponent {
       key: 'Solicitante',
       type: 'no repeat',
       templateOptions: {
+        required: true,
         addText: 'Ingresar sus datos',
       },
       fieldArray: {
@@ -507,6 +508,7 @@ export class AppComponent {
     key: 'Empresa',
     type: 'no repeat',
     templateOptions: {
+      required: true,
       addText: 'Ingresar datos del emprendimiento',
     },
     fieldArray: {
@@ -867,6 +869,7 @@ export class AppComponent {
     key: 'Grupo familiar',
     type: 'no repeat',
     templateOptions: {
+      required: true,
       addText: 'Grupo familiar',
     },
     fieldArray: {
@@ -1129,6 +1132,7 @@ export class AppComponent {
     key: 'Boton necesidades',
     type: 'no repeat',
     templateOptions: {
+      required: true,
       addText: 'Insertar campo de necesidades',
     },
     fieldArray: {
@@ -1260,6 +1264,7 @@ export class AppComponent {
     key: 'Garante',
     type: 'no repeat',
     templateOptions: {
+      required: true,
       addText: 'Ingresar datos de garante',
     },
     fieldArray: {
