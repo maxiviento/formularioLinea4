@@ -1265,8 +1265,9 @@ export class AppComponent {
     fieldArray: {
       fieldGroup: [
         {
-          key: 'Tipo de garante',
+          key: 'Autogarante',
           type: 'select',
+          defaultValue: 'Soy autogarante',
           templateOptions: {
             label: 'Tipo de garante',
             options:[
@@ -1274,10 +1275,6 @@ export class AppComponent {
               {value: 'Soy autogarante', label: 'Soy autogarante'}
             ]
           }
-        },
-        {
-          className: 'info-garante',
-          template: '<div><h3>En caso de no ser autogarante rellene los espacios de abajo</h3></div>',
         },
 
     {
@@ -1287,6 +1284,11 @@ export class AppComponent {
         label: 'Apellido',
         placeholder: 'Ingrese su apellido',
       },
+        expressionProperties:{
+          hide: 'model.Autogarante == "Soy autogarante"',
+          show: 'model.Autogarante == "Presento garante"',
+          'templateOptions.required' : 'model.Autogarante == "Presento garante"'
+        }
     },
     {
       key: 'Nombres',
@@ -1295,6 +1297,11 @@ export class AppComponent {
         label: 'Nombres',
         placeholder: 'Ingrese sus nombres',
       },
+      expressionProperties:{
+        hide: 'model.Autogarante == "Soy autogarante"',
+        show: 'model.Autogarante == "Presento garante"',
+        'templateOptions.required' : 'model.Autogarante == "Presento garante"'
+      }
     },
     {
       key: 'DNI',
@@ -1306,6 +1313,11 @@ export class AppComponent {
         maxLength: 8,
         minLength: 7
       },
+      expressionProperties:{
+        hide: 'model.Autogarante == "Soy autogarante"',
+        show: 'model.Autogarante == "Presento garante"',
+        'templateOptions.required' : 'model.Autogarante == "Presento garante"'
+      }
     },
     {
       key: 'Calle',
@@ -1314,6 +1326,11 @@ export class AppComponent {
         label: 'Calle',
         placeholder: 'Direccion',
       },
+      expressionProperties:{
+        hide: 'model.Autogarante == "Soy autogarante"',
+        show: 'model.Autogarante == "Presento garante"',
+        'templateOptions.required' : 'model.Autogarante == "Presento garante"'
+      }
     },
     {
       key: 'Número',
@@ -1324,6 +1341,11 @@ export class AppComponent {
         label: 'Número',
         placeholder: 'Número',
       },
+      expressionProperties:{
+        hide: 'model.Autogarante == "Soy autogarante"',
+        show: 'model.Autogarante == "Presento garante"',
+        'templateOptions.required' : 'model.Autogarante == "Presento garante"'
+      }
     },
     {
       key: 'Torre',
@@ -1332,6 +1354,10 @@ export class AppComponent {
         label: 'Torre',
         placeholder: 'Torre',
       },
+      expressionProperties:{
+        hide: 'model.Autogarante == "Soy autogarante"',
+        show: 'model.Autogarante == "Presento garante"',
+      }
     },
     {
       key: 'Piso',
@@ -1342,6 +1368,10 @@ export class AppComponent {
         label: 'Piso',
         placeholder: 'Piso',
       },
+      expressionProperties:{
+        hide: 'model.Autogarante == "Soy autogarante"',
+        show: 'model.Autogarante == "Presento garante"',
+      }
     },
     {
       key: 'Depto',
@@ -1350,6 +1380,10 @@ export class AppComponent {
         label: 'Depto',
         placeholder: 'Depto',
       },
+      expressionProperties:{
+        hide: 'model.Autogarante == "Soy autogarante"',
+        show: 'model.Autogarante == "Presento garante"',
+      }
     },
     {
       key: 'Manzana',
@@ -1358,6 +1392,10 @@ export class AppComponent {
         label: 'Manzana',
         placeholder: 'Manzana',
       },
+      expressionProperties:{
+        hide: 'model.Autogarante == "Soy autogarante"',
+        show: 'model.Autogarante == "Presento garante"',
+      }
     },
     {
       key: 'Casa',
@@ -1366,6 +1404,10 @@ export class AppComponent {
         label: 'Casa',
         placeholder: 'Casa',
       },
+      expressionProperties:{
+        hide: 'model.Autogarante == "Soy autogarante"',
+        show: 'model.Autogarante == "Presento garante"',
+      }
     },
     {
       key: 'Barrio',
@@ -1373,8 +1415,11 @@ export class AppComponent {
       templateOptions: {
         label: 'Barrio',
         placeholder: 'Barrio',
-        required: true,
       },
+      expressionProperties:{
+        hide: 'model.Autogarante == "Soy autogarante"',
+        show: 'model.Autogarante == "Presento garante"',
+      }
     },
     {
       key: 'Departamento',
@@ -1412,6 +1457,11 @@ export class AppComponent {
             { value: 'UNION', label:'UNION'  },
         ],
       },
+      expressionProperties:{
+        hide: 'model.Autogarante == "Soy autogarante"',
+        show: 'model.Autogarante == "Presento garante"',
+        'templateOptions.required' : 'model.Autogarante == "Presento garante"'
+      }
     },
     {
       key: 'Localidad',
@@ -1420,6 +1470,11 @@ export class AppComponent {
         label: 'Localidad',
         placeholder: 'Localidad',
       },
+      expressionProperties:{
+        hide: 'model.Autogarante == "Soy autogarante"',
+        show: 'model.Autogarante == "Presento garante"',
+        'templateOptions.required' : 'model.Autogarante == "Presento garante"'
+      }
     },
     {
       key: 'Código Postal',
@@ -1428,6 +1483,11 @@ export class AppComponent {
         label: 'C.P.',
         placeholder: 'Ingrese C.P.',
       },
+      expressionProperties:{
+        hide: 'model.Autogarante == "Soy autogarante"',
+        show: 'model.Autogarante == "Presento garante"',
+        'templateOptions.required' : 'model.Autogarante == "Presento garante"'
+      }
     },
     {
       key: 'Teléfono de contacto',
@@ -1438,6 +1498,11 @@ export class AppComponent {
         label: 'Teléfono',
         placeholder: 'Ingrese teléfono de contacto',
       },
+      expressionProperties:{
+        hide: 'model.Autogarante == "Soy autogarante"',
+        show: 'model.Autogarante == "Presento garante"',
+        'templateOptions.required' : 'model.Autogarante == "Presento garante"'
+      }
     },
     {
       key: 'Estado civíl',
@@ -1453,6 +1518,11 @@ export class AppComponent {
           { value: "Concubino", label: 'Concubino'  },
         ],
       },
+      expressionProperties:{
+        hide: 'model.Autogarante == "Soy autogarante"',
+        show: 'model.Autogarante == "Presento garante"',
+        'templateOptions.required' : 'model.Autogarante == "Presento garante"'
+      }
     },
     {
       key: 'Fecha de Nacimiento garante',
@@ -1462,6 +1532,11 @@ export class AppComponent {
         label: 'Fecha de nacimiento',
         placeholder: 'Fecha de nacimiento dd/mm/aaaa',
       },
+      expressionProperties:{
+        hide: 'model.Autogarante == "Soy autogarante"',
+        show: 'model.Autogarante == "Presento garante"',
+        'templateOptions.required' : 'model.Autogarante == "Presento garante"'
+      }
     },
     {
       key: 'Edad',
@@ -1472,6 +1547,11 @@ export class AppComponent {
         pattern: '\\d{1,3}',
         maxLength: 3
       },
+      expressionProperties:{
+        hide: 'model.Autogarante == "Soy autogarante"',
+        show: 'model.Autogarante == "Presento garante"',
+        'templateOptions.required' : 'model.Autogarante == "Presento garante"'
+      }
     },
     {
       key: 'CUIL',
@@ -1479,11 +1559,15 @@ export class AppComponent {
       templateOptions: {
         label: 'CUIL',
         placeholder: 'Su CUIL',
-        required: true,
         pattern: '\\d{11}',
         maxLength: 11,
         minLength: 11
       },
+      expressionProperties:{
+        hide: 'model.Autogarante == "Soy autogarante"',
+        show: 'model.Autogarante == "Presento garante"',
+        'templateOptions.required' : 'model.Autogarante == "Presento garante"'
+      }
     },
     {
       key: 'Nacionalidad',
@@ -1491,8 +1575,12 @@ export class AppComponent {
       templateOptions: {
         label: 'Nacionalidad',
         placeholder: 'Su Nacionalidad',
-        required: true,
       },
+      expressionProperties:{
+        hide: 'model.Autogarante == "Soy autogarante"',
+        show: 'model.Autogarante == "Presento garante"',
+        'templateOptions.required' : 'model.Autogarante == "Presento garante"'
+      }
     },
     {
       key: 'Vínculo con el solicitante',
@@ -1500,16 +1588,24 @@ export class AppComponent {
       templateOptions: {
         label: 'Vínculo con el solicitante',
         placeholder: 'Su vínculo con el solicitante',
-        required: true,
       },
+      expressionProperties:{
+        hide: 'model.Autogarante == "Soy autogarante"',
+        show: 'model.Autogarante == "Presento garante"',
+        'templateOptions.required' : 'model.Autogarante == "Presento garante"'
+      }
     },
     {
       key: 'E-mail',
       type: 'input',
       templateOptions:{
         label: 'E-mail',
-        required: true,
         placeholder: 'Ingrese un e-mail'
+      },
+      expressionProperties:{
+        hide: 'model.Autogarante == "Soy autogarante"',
+        show: 'model.Autogarante == "Presento garante"',
+        'templateOptions.required' : 'model.Autogarante == "Presento garante"'
       }
     },
 
