@@ -1129,7 +1129,7 @@ export class AppComponent {
     template: '<div><h2>Necesidad a cubrir con el micro préstamo:</h2></div>',
   },
   {
-    key: 'Necesidades',
+    key: 'Grupo Necesidades',
     type: 'no repeat',
     templateOptions: {
       required: true,
@@ -1180,7 +1180,7 @@ export class AppComponent {
             onClick: ($event) => {
               var sum_necesidades = 0
               
-              var clase_contentedora: any = this.form.get('Boton necesidades')
+              var clase_contentedora: any = this.form.get('Grupo Necesidades')
               
               var cont_valores = clase_contentedora.value
               var arr_cont_valores = cont_valores[0]
@@ -1734,7 +1734,7 @@ createPdf() {
             var texto_aux = ""
             for(var jj = 0; jj < text_arr_aux.length; jj++){
               texto_aux = texto_aux + text_arr_aux[jj]
-              if(jj%70==0 && jj != 0){
+              if(jj%88==0 && jj != 0){
                 text_arr.push(texto_aux)
                 texto_aux = ""
               }
