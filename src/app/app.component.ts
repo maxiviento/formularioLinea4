@@ -1129,7 +1129,7 @@ export class AppComponent {
     template: '<div><h2>Necesidad a cubrir con el micro préstamo:</h2></div>',
   },
   {
-    key: 'Boton necesidades',
+    key: 'Necesidades',
     type: 'no repeat',
     templateOptions: {
       required: true,
@@ -1616,38 +1616,46 @@ export class AppComponent {
 
   ],},},
   {
-    key: 'monto solicitado',
-    type: 'input',
-    defaultValue: '$27000',
-    templateOptions: {
-      //pattern: "\\d{0,20}",
-      label: 'Monto solicitado',
-      disabled: true,
-      placeholder: 'Monto',
-    },
-  },
-  {
-    key: 'cantidad de cuotas',
-    type: 'input',
-    defaultValue: '30',
-    templateOptions: {
-      label: 'Cantidad de cuotas',
-      disabled: true,
-      placeholder: 'Cuotas',
-    },
-  },
-  {
-    key: 'Monto estimado de cuota',
-    type: 'input',
-    defaultValue: '$900',
-    templateOptions: {
-      //pattern: "\\d{0,20}",
-      label: 'Monto estimado de cuota',
-      disabled: true,
-      placeholder: 'Monto',
-    },
-  },
-  
+    key: 'Monto solicitado',
+    type: 'no repeat',
+    defaultValue: '1',
+    fieldArray:{
+      fieldGroup:[
+        {
+          key: 'monto solicitado',
+          type: 'input',
+          defaultValue: '$27000',
+          templateOptions: {
+            //pattern: "\\d{0,20}",
+            label: 'Monto solicitado',
+            disabled: true,
+            placeholder: 'Monto',
+          },
+        },
+        {
+          key: 'cantidad de cuotas',
+          type: 'input',
+          defaultValue: '30',
+          templateOptions: {
+            label: 'Cantidad de cuotas',
+            disabled: true,
+            placeholder: 'Cuotas',
+          },
+        },
+        {
+          key: 'Monto estimado de cuota',
+          type: 'input',
+          defaultValue: '$900',
+          templateOptions: {
+            //pattern: "\\d{0,20}",
+            label: 'Monto estimado de cuota',
+            disabled: true,
+            placeholder: 'Monto',
+          },
+        },
+      ]
+    }
+  }
   ]
 
   
@@ -1698,6 +1706,11 @@ createPdf() {
           var z = 0;
 
           for (var clave in arr[j]) {
+            if(Array.isArray(arr[j][clave]) == true){
+              arr = arr.concat(arr[j][clave])
+              continue
+            }
+
             i++;
             res.push([clave, arr[j][clave]]);
             
@@ -1721,7 +1734,7 @@ createPdf() {
             var texto_aux = ""
             for(var jj = 0; jj < text_arr_aux.length; jj++){
               texto_aux = texto_aux + text_arr_aux[jj]
-              if(jj%90==0 && jj != 0){
+              if(jj%70==0 && jj != 0){
                 text_arr.push(texto_aux)
                 texto_aux = ""
               }
