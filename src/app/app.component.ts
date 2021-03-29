@@ -465,7 +465,7 @@ export class AppComponent {
           }
         },
         {
-          key: 'Años de fabricación',
+          key: 'Año de fabricación',
           type: 'input',
           templateOptions:{
             label: 'Años de fabricación',
