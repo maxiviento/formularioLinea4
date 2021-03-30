@@ -1671,7 +1671,7 @@ export class AppComponent {
 
 
   createPdf() {
-    if (this.form.invalid) {
+    if (this.form.valid) {
       let modelo = Object.entries(this.model);
       //
       var doc = new jsPDF('p', 'mm', 'a4');
@@ -1744,6 +1744,7 @@ export class AppComponent {
             var texto_aux = ""
             //Este for recorre todo el texto de un textarea y lo separa cada 88 caracteres o cuando haya un \n
             let cantidad_caracteres = 0
+            let ultima_palabra = ""
             for (var jj = 0; jj < text_arr_aux.length; jj++) {
               if(text_arr_aux[jj]=='\n'){
                 text_arr.push(texto_aux)
@@ -1754,8 +1755,16 @@ export class AppComponent {
               texto_aux = texto_aux + text_arr_aux[jj]
               cantidad_caracteres = cantidad_caracteres + 1
               if (cantidad_caracteres % 88 == 0) {
+                //corta la ultima palabra y la pasa a la siguiente iteracion
+                for(var letra = texto_aux.length;letra > 0;letra--){
+                  if(texto_aux[letra] == " "){
+                    ultima_palabra = texto_aux.slice(letra+1,texto_aux.length)
+                    texto_aux = texto_aux.slice(0,letra)
+                    break
+                  }
+                }
                 text_arr.push(texto_aux)
-                texto_aux = ""
+                texto_aux = ultima_palabra
               }
             }
             text_arr.push(texto_aux)
