@@ -1,1 +1,18 @@
 .datos-solicitante {color:red;}
+textarea{
+    max-width: fit-content;
+}
+textarea.mat-input-element.cdk-textarea-autosize {
+    max-width: fit-content;
+}
+div.row[_ngcontent-mpk-c152]{
+    width: 650px;
+    max-width: 650px;
+}
+div.row ng-star-inserted{
+    width: 650px;
+    max-width: 650px;
+}
+textarea.mat-input-element mat-form-field-autofill-control cdk-textarea-autosize ng-pristine ng-valid cdk-text-field-autofill-monitored ng-touched{
+    max-width: fit-content;
+}

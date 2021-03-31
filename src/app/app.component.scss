@@ -6,7 +6,7 @@ button.mat-button-base {
     margin-left: 8px;
   }
 #container {
-    max-width: 700px;
+    max-width:fit-content;
     display: table;
     margin: 0 auto;
     padding: 3rem;  
@@ -21,4 +21,26 @@ button.mat-button-base {
 formly-form {
     display: block;
     margin-bottom: 2rem;
+    max-width: 650px;
+}
+textarea{
+    max-width: fit-content;
+}
+textarea.mat-input-element.cdk-textarea-autosize {
+    max-width: fit-content;
+}
+div.row[_ngcontent-mpk-c152]{
+    width: 650px;
+    max-width: 650px;
+}
+[div~=ng-star-inserted]{
+    width: 650px;
+    max-width: 650px;
+}
+div.row ng-star-inserted{
+    width: 650px;
+    max-width: 650px;
+}
+textarea.mat-input-element mat-form-field-autofill-control cdk-textarea-autosize ng-pristine ng-valid cdk-text-field-autofill-monitored ng-touched{
+    max-width: fit-content;
 }
