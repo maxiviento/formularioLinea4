@@ -754,7 +754,6 @@ export class AppComponent {
             key: 'Proyecto activo a partir de',
             type: 'input',
             templateOptions: {
-              required: true,
               type: 'date',
               label: 'Proyecto activo desde/a partir de',
             },
@@ -1095,7 +1094,6 @@ export class AppComponent {
             key: 'btn_calcular',
             type: 'button',
             templateOptions: {
-              required: true,
               text: 'Calcular',
               onClick: ($event) => {
                 var sum_ingreso = 0
@@ -1184,7 +1182,6 @@ export class AppComponent {
             type: 'button',
             templateOptions: {
               text: 'Calcular Total',
-              required: true,
               onClick: ($event) => {
                 var sum_necesidades = 0
 
