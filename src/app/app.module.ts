@@ -27,7 +27,7 @@ import { MatCardModule } from '@angular/material/card';
 import { RepeatTypeComponent } from './formly-types/repeat-type.formly.component'
 import { NoRepeatTypeComponent } from './formly-types/no-repeat-type.formly.component'
 import { FormlyFieldButton } from './formly-types//button-type.component'
-import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { MAT_DATE_LOCALE } from '@angular/material/core'
 
 export function validateRequired(err, field: FormlyFieldConfig) {
 	return `${field.key} es requerido`

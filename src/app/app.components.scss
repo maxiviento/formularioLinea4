@@ -22,3 +22,18 @@ formly-form {
     display: block;
     margin-bottom: 2rem;
 }
+textarea{
+    max-width: fit-content;
+}
+textarea.mat-input-element.cdk-textarea-autosize {
+    resize: none !important;
+    max-width: fit-content;
+}
+.row[_ngcontent-mpk-c152]{
+    width: 650px;
+    max-width: 650px;
+}
+.row ng-star-inserted{
+    width: 650px;
+    max-width: 650px;
+}
