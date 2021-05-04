@@ -830,7 +830,6 @@ export class AppComponent {
               show: true,
             },
             templateOptions: {
-              required: true,
               type: 'date',
               label: 'Proyecto activo desde/a partir de',
             },
@@ -1192,7 +1191,6 @@ export class AppComponent {
               show: true,
             },
             templateOptions: {
-              required: true,
               text: 'Calcular',
               onClick: ($event) => {
                 var sum_ingreso = 0
@@ -1294,7 +1292,6 @@ export class AppComponent {
             },
             templateOptions: {
               text: 'Calcular Total',
-              required: true,
               onClick: ($event) => {
                 var sum_necesidades = 0
 
