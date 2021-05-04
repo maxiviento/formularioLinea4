@@ -31,6 +31,7 @@ export class AppComponent {
     {
       key: 'Solicitante',
       type: 'no repeat',
+      
       templateOptions: {
         required: true,
         addText: 'Ingresar sus datos',
@@ -44,6 +45,9 @@ export class AppComponent {
           {
             key: 'Apellido',
             type: 'input',
+            validation: {
+              show: true,
+            },
             templateOptions: {
               label: 'Apellido',
               placeholder: 'Ingrese su apellido',
@@ -53,6 +57,9 @@ export class AppComponent {
           {
             key: 'Nombres',
             type: 'input',
+            validation: {
+              show: true,
+            },
             templateOptions: {
               label: 'Nombres',
               placeholder: 'Ingrese sus nombres',
@@ -62,6 +69,9 @@ export class AppComponent {
           {
             key: 'Sexo',
             type: 'select',
+            validation: {
+              show: true,
+            },
             templateOptions: {
               label: 'Sexo',
               placeholder: 'Placeholder',
@@ -75,6 +85,9 @@ export class AppComponent {
           {
             key: 'DNI',
             type: 'input',
+            validation: {
+              show: true,
+            },
             templateOptions: {
               label: 'DNI',
               placeholder: 'Su Dni',
@@ -87,6 +100,9 @@ export class AppComponent {
           {
             key: 'CUIL',
             type: 'input',
+            validation: {
+              show: true,
+            },
             templateOptions: {
               label: 'CUIL',
               placeholder: 'Su CUIL',
@@ -99,6 +115,9 @@ export class AppComponent {
           {
             key: 'Nacionalidad',
             type: 'input',
+            validation: {
+              show: true,
+            },
             templateOptions: {
               label: 'Nacionalidad',
               placeholder: 'Su Nacionalidad',
@@ -108,6 +127,9 @@ export class AppComponent {
           {
             key: 'Fecha de Nacimiento',
             type: 'input',
+            validation: {
+              show: true,
+            },
             templateOptions: {
               type: 'date',
               label: 'Fecha de nacimiento',
@@ -118,6 +140,9 @@ export class AppComponent {
           {
             key: 'Estado civíl',
             type: 'select',
+            validation: {
+              show: true,
+            },
             templateOptions: {
               label: 'Estado Civil',
               placeholder: 'Placeholder',
@@ -198,6 +223,9 @@ export class AppComponent {
           {
             key: 'Calle',
             type: 'input',
+            validation: {
+              show: true,
+            },
             templateOptions: {
               label: 'Calle',
               placeholder: 'Direccion',
@@ -207,6 +235,9 @@ export class AppComponent {
           {
             key: 'Número',
             type: 'input',
+            validation: {
+              show: true,
+            },
             templateOptions: {
               label: 'Número',
               placeholder: 'Número',
@@ -254,6 +285,9 @@ export class AppComponent {
           {
             key: 'Barrio',
             type: 'input',
+            validation: {
+              show: true,
+            },
             templateOptions: {
               label: 'Barrio',
               placeholder: 'Barrio',
@@ -263,6 +297,9 @@ export class AppComponent {
           {
             key: 'Departamento',
             type: 'select',
+            validation: {
+              show: true,
+            },
             templateOptions: {
               label: 'Departamento',
               placeholder: 'Placeholder',
@@ -301,6 +338,9 @@ export class AppComponent {
           {
             key: 'Localidad',
             type: 'input',
+            validation: {
+              show: true,
+            },
             templateOptions: {
               label: 'Localidad',
               placeholder: 'Localidad',
@@ -310,6 +350,9 @@ export class AppComponent {
           {
             key: 'Código Postal',
             type: 'input',
+            validation: {
+              show: true,
+            },
             templateOptions: {
               pattern: "\\d{1,10}",
               maxLength: 10,
@@ -326,6 +369,9 @@ export class AppComponent {
           {
             key: 'Email',
             type: 'input',
+            validation: {
+              show: true,
+            },
             templateOptions: {
               label: 'Email',
               placeholder: 'Ingrese Email',
@@ -335,6 +381,9 @@ export class AppComponent {
           {
             key: 'Teléfono de contacto',
             type: 'input',
+            validation: {
+              show: true,
+            },
             templateOptions: {
               label: 'Teléfono de contacto',
               placeholder: 'Ingrese teléfono de contacto',
@@ -422,6 +471,9 @@ export class AppComponent {
           {
             key: '¿Dispone de alguna casa o inmueble?',
             type: 'select',
+            validation: {
+              show: true,
+            },
             templateOptions: {
               label: '¿Dispone de alguna casa o inmueble?',
               required: true,
@@ -444,6 +496,9 @@ export class AppComponent {
           {
             key: '¿Dispone de algún vehiculo?',
             type: 'select',
+            validation: {
+              show: true,
+            },
             templateOptions: {
               label: '¿Dispone de algún vehiculo?',
               required: true,
@@ -681,6 +736,9 @@ export class AppComponent {
           {
             key: 'Teléfono',
             type: 'input',
+            validation: {
+              show: true,
+            },
             templateOptions: {
               label: 'Teléfono',
               placeholder: 'Ingrese teléfono de contacto',
@@ -692,6 +750,9 @@ export class AppComponent {
           {
             key: 'Email',
             type: 'input',
+            validation: {
+              show: true,
+            },
             templateOptions: {
               label: 'Email',
               placeholder: 'Ingrese Email',
@@ -701,6 +762,9 @@ export class AppComponent {
           {
             key: 'Tipo de inmueble',
             type: 'select',
+            validation: {
+              show: true,
+            },
             templateOptions: {
               label: 'Tipo de inmueble',
               placeholder: 'Placeholder',
@@ -715,6 +779,9 @@ export class AppComponent {
           {
             key: 'Actividad del microemprendimiento',
             type: 'input',
+            validation: {
+              show: true,
+            },
             templateOptions: {
               label: '¿Cuál es la actividad del microemprendimiento?',
               placeholder: 'Ingrese una actividad',
@@ -724,6 +791,9 @@ export class AppComponent {
           {
             key: 'El emprendimiento es',
             type: 'select',
+            validation: {
+              show: true,
+            },
             templateOptions: {
               required: true,
               label: 'El emprendimiento es:',
@@ -738,6 +808,9 @@ export class AppComponent {
             key: 'Tipo_proyecto',
             type: 'select',
             defaultValue: 'A iniciar',
+            validation: {
+              show: true,
+            },
             templateOptions: {
               label: 'Tipo de proyecto',
               required: true,
@@ -753,6 +826,9 @@ export class AppComponent {
           {
             key: 'Proyecto activo a partir de',
             type: 'input',
+            validation: {
+              show: true,
+            },
             templateOptions: {
               required: true,
               type: 'date',
@@ -766,6 +842,9 @@ export class AppComponent {
           {
             key: 'Sector en el que se desarrolla la actividad',
             type: 'select',
+            validation: {
+              show: true,
+            },
             templateOptions: {
               label: 'Sector en el que se desarrolla la actividad',
               required: true,
@@ -782,6 +861,9 @@ export class AppComponent {
           {
             key: 'Posee experiencia',
             type: 'select',
+            validation: {
+              show: true,
+            },
             templateOptions: {
               options: [
                 { value: 'Si', label: 'Si' },
@@ -802,6 +884,9 @@ export class AppComponent {
           {
             key: '¿Ha realizado cursos de capacitación relacionados con la temática del proyecto?',
             type: 'select',
+            validation: {
+              show: true,
+            },
             templateOptions: {
               required: true,
               label: '¿Ha realizado cursos de capacitación relacionados con la temática del proyecto?',
@@ -814,6 +899,9 @@ export class AppComponent {
           {
             key: '¿Qué curso o capacitación le gustaría realizar?',
             type: 'input',
+            validation: {
+              show: true,
+            },
             templateOptions: {
               required: true,
               label: '¿Qué curso o capacitación le gustaría realizar?',
@@ -822,6 +910,9 @@ export class AppComponent {
           {
             key: 'pidio_alguna_vez_credito',
             type: 'select',
+            validation: {
+              show: true,
+            },
             templateOptions: {
               required: true,
               label: '¿Pidió alguna vez un crédito para un microemprendimiento?',
@@ -870,6 +961,9 @@ export class AppComponent {
     {
       key: 'Grupo familiar',
       type: 'no repeat',
+      validation: {
+        show: true,
+      },
       templateOptions: {
         required: true,
         addText: 'Grupo familiar',
@@ -1094,6 +1188,9 @@ export class AppComponent {
           {
             key: 'btn_calcular',
             type: 'button',
+            validation: {
+              show: true,
+            },
             templateOptions: {
               required: true,
               text: 'Calcular',
@@ -1119,6 +1216,9 @@ export class AppComponent {
           {
             key: 'Total ingresos familiares',
             type: 'input',
+            validation: {
+              show: true,
+            },
             templateOptions: {
               label: 'Total ingresos familiares',
               required: true,
@@ -1151,6 +1251,7 @@ export class AppComponent {
           {
             key: 'Necesidades',
             type: 'repeat',
+            
             templateOptions: {
               addText: 'Agregar Necesidad'
             },
@@ -1159,6 +1260,9 @@ export class AppComponent {
                 {
                   key: 'Descripción',
                   type: 'input',
+                  validation: {
+                    show: true,
+                  },
                   templateOptions: {
                     label: 'Descripción',
                     placeholder: 'Ingrese una descripción',
@@ -1168,6 +1272,9 @@ export class AppComponent {
                 {
                   key: 'Precio',
                   type: 'input',
+                  validation: {
+                    show: true,
+                  },
                   templateOptions: {
                     label: 'Precio',
                     placeholder: 'Ingrese un precio',
@@ -1182,6 +1289,9 @@ export class AppComponent {
           {
             key: 'btn_calcular',
             type: 'button',
+            validation: {
+              show: true,
+            },
             templateOptions: {
               text: 'Calcular Total',
               required: true,
@@ -1213,6 +1323,9 @@ export class AppComponent {
           {
             key: 'Monto Total de las necesidades',
             type: 'input',
+            validation: {
+              show: true,
+            },
             templateOptions: {
               label: 'Monto Total de las necesidades',
               disabled: true,
@@ -1271,6 +1384,9 @@ export class AppComponent {
     {
       key: 'Garante',
       type: 'no repeat',
+      validation: {
+        show: true,
+      },
       templateOptions: {
         required: true,
         addText: 'Ingresar datos de garante',
@@ -1635,6 +1751,9 @@ export class AppComponent {
             key: 'monto solicitado',
             type: 'input',
             defaultValue: '$27000',
+            validation: {
+              show: true,
+            },
             templateOptions: {
               //pattern: "\\d{0,20}",
               label: 'Monto solicitado',
@@ -1646,6 +1765,9 @@ export class AppComponent {
             key: 'cantidad de cuotas',
             type: 'input',
             defaultValue: '30',
+            validation: {
+              show: true,
+            },
             templateOptions: {
               label: 'Cantidad de cuotas',
               disabled: true,
@@ -1656,6 +1778,9 @@ export class AppComponent {
             key: 'Monto estimado de cuota',
             type: 'input',
             defaultValue: '$900',
+            validation: {
+              show: true,
+            },
             templateOptions: {
               //pattern: "\\d{0,20}",
               label: 'Monto estimado de cuota',
@@ -1671,7 +1796,7 @@ export class AppComponent {
 
 
   createPdf() {
-    if (this.form.valid) {
+    if (this.form.invalid) {
       let modelo = Object.entries(this.model);
       //
       var doc = new jsPDF('p', 'mm', 'a4');
@@ -1819,8 +1944,9 @@ export class AppComponent {
     } else (error) => {
       console.error('error:', error);
     }
-    if (this.form.invalid) {
+    if (this.form.valid) {
       alert("falta completar datos")
+      
     }
   }
 }
