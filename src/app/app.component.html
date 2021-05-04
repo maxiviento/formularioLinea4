@@ -18,12 +18,12 @@
   <li>Éste formulario como la documentación  que se les solicite agreguen adjunta deben estar completa para poder evaluar la solicitud.
   </li>
     <li>El/la solicitante como el/la garante deben ser personas hábiles mayores de edad (18 años cumplidos) y hasta 70 años.</li>
-  <li>Solicitante, su grupo familiar y garante, No deben tener deudas vencidas de créditos otorgados por del Gobierno de la Provincia de Córdoba.</li>
+  <li>Solicitante, su grupo familiar y garante, No deben tener deudas vencidas de créditos otorgados por el Gobierno de la Provincia de Córdoba.</li>
   <li>Tanto el titular como el garante deben tener domicilio dentro de la Provincia de Córdoba.</li>
-  <li>Solicitante y garante deben poseer  CIDI nivel 2 para ser beneficiario del Crédito. Más info</li>
+  <li>Solicitante y garante deben poseer  CIDI nivel 2 para ser beneficiario del Crédito.<a href=" https://cidi.cba.gov.ar/portal-publico/"> Más info </a></li>
   <li>Se otorga un crédito por grupo familiar.</li>
   <li>Un garante no puede ser solicitante de otro crédito ni garante de otro crédito.</li>
-  <li>El solicitante debe debe ser titular de una Cuenta de Caja de Ahorro</li>
+  <li>El solicitante debe debe ser titular de una Cuenta de Caja de Ahorro (para el depósito posterior de su crédito, de ser aprobado).</li>
 </ul>
   <form [formGroup]="form" >
     <formly-form [form]="form" [fields]="fields" [model]="model" [options]="options"></formly-form>
@@ -46,9 +46,9 @@
 
     <div flex = 33>
       <mat-card>
-      <p><button type="button" mat-raised-button color="primary" (click)="createPdf()" [disabled]="!form.valid">Generar Formulario de solicitud de crédito en PDF</button></p>
-      <p>El documento PDF descargado y la documentación mencionada deberá ingresarla en
-      <a href="https://fid.cba.gov.ar/ee-fid-multinota/multinota/#/form/FID/MNOTA_OTRO?reparticion=SEPE01">Mesa de entrada e-tramites </a></p>
+      <p><button type="button" mat-raised-button color="primary" (click)="createPdf()" >Generar Formulario de solicitud de crédito en PDF</button></p>
+      <p><strong> documento PDF descargado y la documentación mencionada deberá ingresarla en
+      <a href="https://fid.cba.gov.ar/ee-fid-multinota/multinota/#/form/FID/MNOTA_OTRO?reparticion=SEPE01">Mesa de entrada e-tramites </a></strong></p>
     </mat-card>
     </div>
     <p>bancodelagente@cba.gov.ar</p> 
