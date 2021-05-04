@@ -1,4 +1,4 @@
-import { NONE_TYPE } from '@angular/compiler'
+import { ArrayType, NONE_TYPE } from '@angular/compiler'
 import { Component } from '@angular/core'
 import { FormGroup } from '@angular/forms'
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core'
@@ -31,7 +31,7 @@ export class AppComponent {
     {
       key: 'Solicitante',
       type: 'no repeat',
-      
+
       templateOptions: {
         required: true,
         addText: 'Ingresar sus datos',
@@ -1249,7 +1249,7 @@ export class AppComponent {
           {
             key: 'Necesidades',
             type: 'repeat',
-            
+
             templateOptions: {
               addText: 'Agregar Necesidad'
             },
@@ -1793,8 +1793,8 @@ export class AppComponent {
 
 
   createPdf() {
-    if (this.form.invalid) {
-      let modelo = Object.entries(this.model);
+    let modelo = Object.entries(this.model);
+    if (this.form.valid) {
       //
       var doc = new jsPDF('p', 'mm', 'a4');
       var img = new Image();
@@ -1868,7 +1868,7 @@ export class AppComponent {
             let cantidad_caracteres = 0
             let ultima_palabra = ""
             for (var jj = 0; jj < text_arr_aux.length; jj++) {
-              if(text_arr_aux[jj]=='\n'){
+              if (text_arr_aux[jj] == '\n') {
                 text_arr.push(texto_aux)
                 texto_aux = ""
                 cantidad_caracteres = 0
@@ -1878,10 +1878,10 @@ export class AppComponent {
               cantidad_caracteres = cantidad_caracteres + 1
               if (cantidad_caracteres % 88 == 0) {
                 //corta la ultima palabra y la pasa a la siguiente iteracion
-                for(var letra = texto_aux.length;letra > 0;letra--){
-                  if(texto_aux[letra] == " "){
-                    ultima_palabra = texto_aux.slice(letra+1,texto_aux.length)
-                    texto_aux = texto_aux.slice(0,letra)
+                for (var letra = texto_aux.length; letra > 0; letra--) {
+                  if (texto_aux[letra] == " ") {
+                    ultima_palabra = texto_aux.slice(letra + 1, texto_aux.length)
+                    texto_aux = texto_aux.slice(0, letra)
                     break
                   }
                 }
@@ -1937,13 +1937,38 @@ export class AppComponent {
       doc.output('dataurlnewwindow');
       doc.save('solicitudCreditoL4' + nombreArchivo + '.pdf');
 
-
+      alert("PDF Generado con éxito.")
     } else (error) => {
       console.error('error:', error);
     }
-    if (this.form.valid) {
-      alert("falta completar datos")
-      
+    if (this.form.invalid) {
+      console.log(this.form.controls)
+      var fields: any = this.form.controls
+      var txt_alert = ""
+      for (var seccion of Object.keys(fields)) {
+        try {
+          for (var clave of Object.keys(fields[seccion]["controls"][0]["controls"])) {
+            let campo = fields[seccion]["controls"][0]["controls"][clave]
+            try {
+              let campos_internos = campo["controls"][0]["controls"]
+              for (let campos of Object.keys(campos_internos)) {
+                if (campos_internos[campos]["status"] == "INVALID") {
+                  txt_alert = txt_alert + "Falta llenar el campo " + campos + " en " + seccion + "\n"
+                }
+              }
+            } catch {
+
+              if (campo["status"] == "INVALID") {
+                txt_alert = txt_alert + "Falta llenar el campo " + clave + " en " + seccion + "\n"
+              }
+            }
+          }
+        } catch (e) {
+          console.log(e)
+        }
+      }
+      alert(txt_alert)
     }
   }
 }
+
